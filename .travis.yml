@@ -4,9 +4,19 @@ node_js:
 cache:
   directories:
   - node_modules
+env:
+  global:
+    - CC_TEST_REPORTER_ID=04a865247cf84cb85ff575b5753110dafaa13b3a5296da6d29a900c6986afbea
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
-  - npm test
+  - npm test -- --coverage
   - npm run build
+after_script:
+  - ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 deploy:
   provider: pages
   skip_cleanup: true
