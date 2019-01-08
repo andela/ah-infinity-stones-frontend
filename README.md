@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/andela/ah-infinity-stones-frontend.svg?branch=develop)](https://travis-ci.org/andela/ah-infinity-stones-frontend)
  # Authors Haven Front-End
 
 Create a community of like minded authors to foster inspiration and innovation by leveraging the modern web.
