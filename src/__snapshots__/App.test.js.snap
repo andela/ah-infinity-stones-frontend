@@ -12,10 +12,25 @@ exports[`App test Suite Should match snapshot 1`] = `
     }
   }
 >
-  <div
-    className="App"
-  >
-    <Connect(Articles) />
-  </div>
+  <BrowserRouter>
+    <div
+      className="App"
+    >
+      <Navbar />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/login"
+      />
+      <Route
+        component={[Function]}
+        path="/articles"
+      />
+    </div>
+  </BrowserRouter>
 </Provider>
 `;
