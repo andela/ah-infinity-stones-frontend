@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/andela/ah-infinity-stones-frontend.svg?branch=develop)](https://travis-ci.org/andela/ah-infinity-stones-frontend)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/36f8d440d6767048d6ae/test_coverage)](https://codeclimate.com/github/andela/ah-infinity-stones-frontend/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/36f8d440d6767048d6ae/maintainability)](https://codeclimate.com/github/andela/ah-infinity-stones-frontend/maintainability)
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
  # Authors Haven Front-End
 
 Create a community of like minded authors to foster inspiration and innovation by leveraging the modern web.
