@@ -24,10 +24,6 @@ exports[`App test Suite Should match snapshot 1`] = `
       />
       <Route
         component={[Function]}
-        path="/articles"
-      />
-      <Route
-        component={[Function]}
         exact={true}
         path="/login"
       />
@@ -35,6 +31,18 @@ exports[`App test Suite Should match snapshot 1`] = `
         component={[Function]}
         exact={true}
         path="/signup"
+      />
+      <Route
+        component={[Function]}
+        path="/articles"
+      />
+      <Route
+        component={[Function]}
+        path="/user/ResetPassword"
+      />
+      <Route
+        component={[Function]}
+        path="/user/Resetlink"
       />
     </div>
   </BrowserRouter>
