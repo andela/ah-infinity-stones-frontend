@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import './App.css';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import store from './redux/store';
-import Articles from './components/Article';
-import { BrowserRouter, Route } from 'react-router-dom'
-import Navbar from './views/Navbar'
-import Home from './views/Home'
-import Login from './views/Login'
+import Navbar from './views/Navbar';
+import Home from './views/Home';
+import Login from './views/Login';
 
-class App extends Component {
+// eslint-disable-next-line react/prefer-stateless-function
+export default class App extends Component {
   render() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
     return (
       <Provider store={store}>
         <BrowserRouter>
           <div className="App">
             <Navbar />
-            <Route exact path='/' component={Home}/>
-            <Route path='/login' component={Login}/>
-            <Route path='/articles' component={Articles}/>
-        </div>
-      </BrowserRouter>
+            <Route exact path="/" component={Home} />
+            { isLoggedIn !== 'true' ? <Route exact path="/login" component={Login} /> : <Redirect to="/" /> }
+          </div>
+        </BrowserRouter>
       </Provider>
-      
-      
+
+
     );
   }
 }
-
-export default App;
