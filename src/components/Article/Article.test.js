@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable comma-dangle */
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -11,7 +12,6 @@ import { likeSaga } from '../../redux/sagas/likeSagas';
 import likeReducer from '../../redux/reducers/likeReducer';
 import * as types from '../../redux/actions/actionTypes';
 import Articles from '../Articles/index';
-
 
 describe('Single Article Component', () => {
   let articleContainer;
@@ -50,10 +50,14 @@ describe('single article mount', () => {
   const match = {
     params: {
       art_slug: 'js-testing',
-    },
+    }
   };
   const article = {
-    art_slug: 'smileys', title: 'smileys', description: 'emoji are working', body: '<p>there…y are thats awespome</p>', read_time: 1,
+    art_slug: 'smileys',
+    title: 'smileys',
+    description: 'emoji are working',
+    body: '<p>there…y are thats awespome</p>',
+    read_time: 1
   };
   it('Article renders successfully', () => {
     // let article_div = articleContainer.find('div')
@@ -75,7 +79,9 @@ describe('Like functionality', () => {
   it('works with sagas', () => {
     const likeData = { likeData: { like: 'False' }, artSlug: 'sample-slug' };
     const generator = likeSaga(likeData);
-    expect(generator.next().value).toEqual(call(like, likeData.likeData, likeData.artSlug));
+    expect(generator.next().value).toEqual(
+      call(like, likeData.likeData, likeData.artSlug),
+    );
   });
   it('has an initial state', () => {
     expect(likeReducer(undefined, { type: undefined })).toEqual({
@@ -88,9 +94,11 @@ describe('Like functionality', () => {
     });
   });
   it('it can send a like/dislike request', () => {
-    expect(likeReducer(undefined, {
-      type: types.SEND_LIKE,
-    })).toEqual({
+    expect(
+      likeReducer(undefined, {
+        type: types.SEND_LIKE,
+      })
+    ).toEqual({
       success: null,
       error: null,
       dislikeCount: null,
@@ -99,6 +107,7 @@ describe('Like functionality', () => {
       disliked: null,
     });
   });
+
   it('Like endpoint needs auth', async () => {
     const slug = 'like-this';
     const likeData = { likeData: { like: 'False' } };

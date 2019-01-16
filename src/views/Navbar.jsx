@@ -19,7 +19,7 @@ const Navbar = () => {
             <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</NavLink>
           </li>
         </ul>
-        <form className="navbar-form navbar-right" id="nav-search-form" action="">
+        <form className="navbar-form navbar-right" id="nav-search-form" action=''>
           <div className="input-group">
             <input type="text" className="form-control" placeholder="Search" />
             <div className="input-group-btn">

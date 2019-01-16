@@ -33,6 +33,7 @@ const passwordReset = (state = initialState, action) => {
         ...state,
         error: action.error,
       };
+
     case PASSWORD_RESET_UPDATE_START:
       return {
         ...state,

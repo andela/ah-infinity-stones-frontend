@@ -34,13 +34,13 @@ class SignUp extends Component{
     handleSubmit = (e) => {
       e.preventDefault();
       let formValidate = validator(this.state);
-      if(document.getElementById('serverMsgs').innerHTML === ""){
+      if(document.getElementById('serverMsgs').innerHTML === ''){
         this.pageLoading.loading = true;
       }
       else{
         this.pageLoading.loading = false;
       }
-      if(formValidate.success !== ""){
+      if(formValidate.success !== ''){
       const { signupAction  } = this.props;
       signupAction (this.state);
     }

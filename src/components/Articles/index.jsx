@@ -26,6 +26,7 @@ class GetAllArticles extends Component {
     return (
       <div>
         <div className="page-header text-center"><h3>ALL ARTICLES</h3></div>
+        <div className="page-header"><h3>FEATURED ARTICLES</h3></div>
         <div className="container" id="allArticles"><div className="card-columns">{articlesList}</div></div>
       </div>
     );

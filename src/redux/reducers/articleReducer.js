@@ -54,10 +54,9 @@ export default (state = initialState, action) => {
         article: action.payload,
       };
     case DELETE_ARTICLE:
-      const newState = state.articles.filter(article => article.art_slug !== action.payload);
       return {
         ...state,
-        articles: newState,
+        articles: state.articles.filter(article => article.art_slug !== action.payload),
       };
     case RATE_ARTICLE:
       return {
