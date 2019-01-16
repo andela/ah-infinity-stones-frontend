@@ -10,12 +10,10 @@ export const createArticleAction = article => ({
   type: CREATE_ARTICLE,
   payload: article,
 });
-
 export const createArticleSuccessAction = article => ({
   type: CREATE_ARTICLE_SUCCESS,
   payload: article,
 });
-
 export const createArticleFailureAction = error => ({
   type: CREATE_ARTICLE_FAILURE,
   payload: error,
