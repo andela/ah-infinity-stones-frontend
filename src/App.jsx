@@ -2,14 +2,16 @@ import { Provider } from 'react-redux';
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import store from './redux/store';
-import Signup from './views/Signup';
-import Articles from './components/Article';
 import Navbar from './views/Navbar';
-import Home from './views/Home';
-import Login from './views/Login/index';
+import Signup from './views/Signup';
+import Login from './views/Login';
 import ResetPassword from './components/User/ResetPassword';
 import ResetLink from './components/User/ResetPassword/ResetLink';
-
+import ArticleCreationForm from './components/Forms/articles/ArticleCreationForm';
+import ArticleUpdateForm from './components/Forms/articles/ArticleUpdateForm';
+import Article from './components/Article';
+import Footer from './views/Footer';
+import AllArticlesView from './views/articles/allArticles';
 
 export default class App extends Component {
   render() {
@@ -18,12 +20,15 @@ export default class App extends Component {
         <BrowserRouter>
           <div className="App">
             <Navbar />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={AllArticlesView} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route path="/articles" component={Articles} />
             <Route path="/user/ResetPassword" component={ResetPassword} />
             <Route path="/user/Resetlink" component={ResetLink} />
+            <Route exact path="/articles" component={ArticleCreationForm} />
+            <Route exact path="/articles/:art_slug" component={Article} />
+            <Route exact path="/articles/:art_slug/edit" component={ArticleUpdateForm} />
+            <Footer />
           </div>
         </BrowserRouter>
       </Provider>

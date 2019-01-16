@@ -4,10 +4,12 @@ import socialLoginReducer from './socialLoginReducer';
 import passwordReset from './passwordResetReducer';
 
 import loginReducer from './loginReducer';
+import articleReducer from './articleReducer';
 
 export default combineReducers({
   socialLoginReducer,
   loginReducer,
   signupReducer,
   passwordReset,
+  articleReducer,
 });

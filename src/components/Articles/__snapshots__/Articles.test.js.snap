@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All Articles Component articles component should match snapshot 1`] = `
+Array [
+  <Context.Consumer>
+    [Function]
+  </Context.Consumer>,
+]
+`;

@@ -19,8 +19,6 @@ package-lock.json
 .env.test.local
 .env.production.local
 
-#snapshots
-/__snapshots__
 
 npm-debug.log*
 yarn-debug.log*
