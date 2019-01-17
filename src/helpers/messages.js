@@ -1,6 +1,5 @@
 import toastr from 'toastr';
 
-
 toastr.options = {
   toastClass: 'alert',
   iconClasses: {
@@ -9,7 +8,7 @@ toastr.options = {
     success: 'alert-success',
     warning: 'alert-warning',
   },
-  showDuration: 3000,
+  showDuration: 5000,
   hideDuration: 500,
   timeOut: 5000,
   extendedTimeOut: 2000,
@@ -20,7 +19,6 @@ toastr.options = {
   showMethod: 'fadeIn',
   hideMethod: 'fadeOut',
 };
-
 export const successMessage = (message) => {
   toastr.success(message);
 };

@@ -13,8 +13,12 @@ export function* loginSaga(action) {
     const { user } = action;
     const response = yield call(login, user);
     if (response.user) {
-      yield put(receiveLogin(response.user.Message));
-      localStorage.setItem('Token', response.user.Token);
+      if (response.user.Token) {
+        yield put(receiveLogin(response.user.Message));
+        localStorage.setItem('Token', response.user.Token);
+      } else {
+        yield put(loginError(response.user.detail));
+      }
     } else {
       yield put(loginError(response.errors));
     }

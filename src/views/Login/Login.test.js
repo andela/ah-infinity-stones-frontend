@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Redirect } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { call } from 'redux-saga/effects';
 import store from '../../redux/store';
 import Login from '.';
@@ -10,7 +10,6 @@ import loginReducer from '../../redux/reducers/loginReducer';
 import * as types from '../../redux/actions/actionTypes';
 import { loginSaga } from '../../redux/sagas/loginSaga';
 import loginFunc from '../../services/login';
-import { handleSuccess, errorClass } from '.';
 
 
 describe('Login Component', () => {

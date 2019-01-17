@@ -1,55 +1,55 @@
-$font-stack:    "Segoe UI", Arial, sans-serif;
-$primary-color: #86c232;
-$secondary-color: #da2687;
-$another-color: #f0ff0f;
+// $font-stack:    "Segoe UI", Arial, sans-serif;
+// $primary-color: #86c232;
+// $secondary-color: #da2687;
+// $another-color: #f0ff0f;
 
-// %message-shared is extended below.
-// $npm run build-css will print in generated css
-%message-shared {
-  border: 4px solid #ccc;
-  padding: 10px;
-  color: #333;
-}
+// // %message-shared is extended below.
+// // $npm run build-css will print in generated css
+// %message-shared {
+//   border: 4px solid #ccc;
+//   padding: 10px;
+//   color: #333;
+// }
 
-// %equal-heights is not extended.
-%equal-heights {
-  display: flex;
-  flex-wrap: wrap;
-}
+// // %equal-heights is not extended.
+// %equal-heights {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
 
 
-body {
-  font: $font-stack;
-}
+// body {
+//   font: $font-stack;
+// }
 
-.app-header {
-  background-color: $primary-color;
-}
+// .app-header {
+//   background-color: $primary-color;
+// }
 
-.app-link {
-  color: $primary-color;
-text-decoration: none;
-}
+// .app-link {
+//   color: $primary-color;
+// text-decoration: none;
+// }
 
-.spinner {
-  color: $another-color;
-}
+// .spinner {
+//   color: $another-color;
+// }
 
-.message {
-  @extend %message-shared;
-}
+// .message {
+//   @extend %message-shared;
+// }
 
-.success {
-  @extend %message-shared;
-  border-color: #86c232;
-}
+// .success {
+//   @extend %message-shared;
+//   border-color: #86c232;
+// }
 
-.error {
-  @extend %message-shared;
-  border-color: red;
-}
+// .error {
+//   @extend %message-shared;
+//   border-color: red;
+// }
 
-.warning {
-  @extend %message-shared;
-  border-color: yellow;
-}
+// .warning {
+//   @extend %message-shared;
+//   border-color: yellow;
+// }
