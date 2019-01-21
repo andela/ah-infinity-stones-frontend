@@ -1,7 +1,11 @@
 module.exports = {
-    "extends": ["airbnb","plugin:import/errors", "plugin:import/warnings"],
+    "extends": ["airbnb",
+    "plugin:import/errors", "plugin:import/warnings"],
+    "parser": "babel-eslint",
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        'import/no-extraneous-dependencies': ["error", { devDependencies: true, }],
+        "require-jsdoc" : 0
     },
     env: {
         es6: true,
@@ -16,7 +20,6 @@ module.exports = {
         modules: true,
         arrowFunctions: true
     },
-    "parser": "babel-eslint",
     "parserOptions": {
         ecmaVersion: 6,
         sourceType: "module",
