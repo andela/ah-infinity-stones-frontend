@@ -1,0 +1,15 @@
+export default {
+  twitter: {
+    provider: 'twitter',
+    access_token: '',
+    access_token_secret: '',
+  },
+  facebook: {
+    provider: 'facebook',
+    access_token: '',
+  },
+  google: {
+    provider: 'google-oauth2',
+    access_token: '',
+  },
+};
