@@ -7,6 +7,7 @@ import LoginForm from '../../components/Forms/LoginForm';
 import { requestLogin } from '../../redux/actions/loginActions';
 import { errorMessage, successMessage } from '../../helpers/messages';
 import Loader from '../Loader';
+import './Login.scss';
 
 
 class Login extends Component {

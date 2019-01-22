@@ -1,4 +1,6 @@
 /* eslint no-underscore-dangle: 0 */
+/* eslint-disable no-console */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-undef */
 import { applyMiddleware, createStore, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';

@@ -29,7 +29,7 @@ form {
         width: 100%;
         padding: 0.7em;
         margin: 2% 0%;
-        transition: all .2s ease-in-out; 
+        transition: all .2s ease-in-out;
     }
     .login-button:hover{
         background-color: #222629!important;
@@ -55,5 +55,12 @@ form {
     a{
         color: #86C232;
     }
+    span{
+        color: #b6432e;
+        text-align: center;
+    }
+    #signup-msg{
+        color: #86c232;
+    }
 }
-   
+
