@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './LoginForm.scss';
+import SocialLogin from '../../../views/Login/SocialLogin';
 
 const LoginForm = ({
   handleLogin, handleChange, errorClass,
@@ -15,7 +16,7 @@ const LoginForm = ({
         <div className="form-group">
           <label htmlFor="email">
             Email address
-        </label>
+    </label>
           <input
             type="email"
             className={`form-control ${errorClass(errors.inputErrors.email)}`}
@@ -47,13 +48,16 @@ const LoginForm = ({
           disabled={!submitEnabled}
         >
           Submit
-      </button>
-      <Link to="/reset" className="forgot">Forgot password?</Link>
-      <p id="signup">
-        Dont have an account?
-      {' '}
-        <Link to="/register">Sign Up</Link>
-      </p>
+  </button>
+        <Link to="/reset" className="forgot">Forgot password?</Link>
+          <p id='or'>OR</p><br /><br />
+        <SocialLogin />
+        <br />
+        <p id="signup">
+          Dont have an account?
+  {' '}
+          <Link to="/register">Sign Up</Link>
+        </p>
 
       </form>
     </div>

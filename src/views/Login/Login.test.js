@@ -75,8 +75,8 @@ describe('Login Reducer', () => {
 
 describe('Login Sagas', () => {
   const userInfo = {
-    email: 'test@mail.com',
-    password: 'dddddd',
+    email: 'ndwigajustin@gmail.com',
+    password: '@Password1',
   };
   const generator = loginSaga(userInfo);
   const { user } = userInfo;
@@ -87,16 +87,15 @@ describe('Login Sagas', () => {
 
 describe('Login makes API fetch', () => {
   const userInfo = {
-    email: 'test@mail.com',
-    password: 'dddddd',
+    email: 'ndwigajustin@gmail.com',
+    password: '@Password1',
   };
   it('should return a promise', () => {
-    expect(loginFunc()).toBeTruthy();
+    expect(loginFunc(userInfo)).toBeTruthy();
   });
-  it('should return expected data', () => {
-    loginFunc(userInfo).then((objects) => {
-      expect(objects).toHaveLength(1);
-    });
+  it('should return expected data', async () => {
+    const resp = await loginFunc(userInfo);
+    expect(resp.user.Token).toBeTruthy();
   });
   describe('Login Helpers', () => {
     it('it should redirect', () => {

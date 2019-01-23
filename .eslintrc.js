@@ -5,7 +5,8 @@ module.exports = {
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         'import/no-extraneous-dependencies': ["error", { devDependencies: true, }],
-        "require-jsdoc" : 0
+        "require-jsdoc" : 0,
+        "react/prefer-stateless-function": [2, { "ignorePureComponents": true }],
     },
     env: {
         es6: true,
@@ -16,31 +17,6 @@ module.exports = {
     "plugins": [
         "react"
       ],
-    ecmaFeatures: {
-        modules: true,
-        arrowFunctions: true
-    },
-    "parserOptions": {
-        ecmaVersion: 6,
-        sourceType: "module",
-        allowImportExportEverywhere: true
-    },
-  extends: ['airbnb', 'plugin:import/errors', 'plugin:import/warnings'],
-  rules: {
-    'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx']}],
-    'import/no-extraneous-dependencies': ['error', {'devDependencies': true}],
-  },
-  env: {
-    es6: true,
-    browser: true,
-    node: true,
-    jest: true,
-  },
-  plugins: ['react'],
-  ecmaFeatures: {
-    modules: true,
-    arrowFunctions: true,
-  },
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
