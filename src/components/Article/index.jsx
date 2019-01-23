@@ -6,7 +6,7 @@ class Articles extends Component {
       <div>
         <h1>Article Counter</h1>
       </div>
-    )
+    );
   }
 }
 export default Articles;

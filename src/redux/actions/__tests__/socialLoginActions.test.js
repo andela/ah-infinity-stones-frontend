@@ -5,9 +5,10 @@ describe('Social Login Actions', () => {
   it('Should return correct request action', () => {
     const expectedAction = {
       type: SOCIAL_LOGIN_REQUEST,
-      data: {},
+      platform: 'twitter',
+      data: null,
     };
-    const result = socialLoginRequest({});
+    const result = socialLoginRequest('twitter');
     expect(expectedAction).toEqual(result);
   });
 
