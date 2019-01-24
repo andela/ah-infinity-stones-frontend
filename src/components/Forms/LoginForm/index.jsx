@@ -48,16 +48,13 @@ const LoginForm = ({
           disabled={!submitEnabled}
         >
           Submit
-  </button>
-        <Link to="/reset" className="forgot">Forgot password?</Link>
-          <p id='or'>OR</p><br /><br />
-        <SocialLogin />
-        <br />
-        <p id="signup">
-          Dont have an account?
-  {' '}
-          <Link to="/register">Sign Up</Link>
-        </p>
+      </button>
+      <Link to="/reset" className="forgot">Forgot password?</Link>
+      <p id="signup">
+        Dont have an account?
+      {' '}
+        <Link to="/register">Sign Up</Link>
+      </p>
 
       </form>
     </div>

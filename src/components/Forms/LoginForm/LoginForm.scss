@@ -1,13 +1,11 @@
 $btn-color: #86C232;
-
-* {
+*{
     margin: 0;
     padding: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
 }
-
 body {
     font-family: 'open sans', sans-serif;
 }
@@ -17,7 +15,6 @@ form {
     width: 98%;
     overflow: hidden;
     position: relative;
-
     .head {
         color: $btn-color;
         font-size: 34px;
@@ -35,35 +32,30 @@ form {
         margin: 2% 0%;
         transition: all .2s ease-in-out;
     }
-
-    .login-button:hover {
-        background-color: #222629 !important;
+    .login-button:hover{
+        background-color: #222629!important;
         opacity: 0.5;
-        color: #fff !important;
+        color: #fff!important;
         border: hidden;
     }
-
-    .login-button:active {
+    .login-button:active{
         border: hidden;
     }
     .forgot{
         margin-bottom: 10%;
         float: right;
     }
-
-    #signup {
+    #signup{
         margin-top: 10%;
         text-align: center;
         margin-left: 19%;
     }
-
-    .login-button[disabled] {
+    .login-button[disabled]{
         background-color: $btn-color;
     }
     a{
         color: #86C232;
     }
-
     span{
         color: #b6432e;
         text-align: center;

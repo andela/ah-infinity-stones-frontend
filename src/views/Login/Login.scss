@@ -18,42 +18,40 @@
     animation: spin 2s linear infinite;
   }
 
-  /* Safari browser */
-  @-webkit-keyframes spin {
-    0% {
-      -webkit-transform: rotate(0deg);
+    /* Safari browser */
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
     }
 
-    100% {
-      -webkit-transform: rotate(360deg);
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
   }
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
+  #toast-container {
+    margin: 0px auto;
+    width: 30%;
+    position: absolute;
+    top: 28%;
+    left: 35%;
   }
-}
 
-#toast-container {
-  margin: 0px auto;
-  width: 30%;
-  position: absolute;
-  top: 28%;
-  left: 35%;
-}
-
-button.toast-close-button {
-  background: 0 0;
-  border: 0;
-  float: right;
-  padding: 0;
-  cursor: pointer;
-}
-
-
+  button.toast-close-button {
+    background: 0 0;
+    border: 0;
+    float: right;
+    padding: 0;
+    cursor: pointer;
+  }
