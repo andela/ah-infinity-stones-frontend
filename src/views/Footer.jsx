@@ -26,9 +26,11 @@ const Footer = () => {
                                 <li>AH Inc. &copy; 2018</li>
                                 <li>+254-711-111-111</li>
                                 <li>
-                                    <i className="fab fa-facebook-square"></i>
-                                    <i className="fab fa-twitter-square"></i>
-                                    <i className="fab fa-instagram"></i>
+                                    <a className="socialMediaIcon" href="https://facebook.com"><i className="fa fa-facebook-square"></i></a>
+                                    {' '}
+                                    <a className="socialMediaIcon" href="https://twitter.com"><i className="fab fa-twitter-square"></i></a>
+                                    {' '}
+                                    <a className="socialMediaIcon" href="https://istagram.com"><i className="fab fa-instagram"></i></a>
                                 </li>
                             </ul>
                         </div>

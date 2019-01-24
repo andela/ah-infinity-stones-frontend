@@ -18,13 +18,13 @@ code {
 .navbar-collapse {
   text-align: center;
 }
-li a, i, .fa-search {
-    color: rgb(219, 216, 216)!important;
+li a, .socialMediaIcon, .homeSearch {
+    color: rgb(219, 216, 216);
 }
 li.active a{
     color: #86C232!important;
 }
-a:hover, i:hover {
+a:hover, .socialMediaIcon:hover {
   color: #86C232!important;
 }
 #home-search-btn{
@@ -33,7 +33,7 @@ a:hover, i:hover {
    background-color: #86C232;
    border-color: #86C232;
 }
-.fa-search:hover{
+.homeSearch:hover{
   color:#222629!important;
 }
 #navbarSupportedContent{
@@ -85,13 +85,13 @@ footer a{
    padding-top: 3%;
 }
 .subscribe{
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  background-color: #474B4F;
-  color: rgb(219, 216, 216);
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  background-color: #474B4F !important;
+  color: rgb(219, 216, 216) !important;
 }
 .subscribe:hover{
-   color: #86C232;
+   color: #86C232 !important;
 }
 @media all and (max-width: 600px) {
   .container {

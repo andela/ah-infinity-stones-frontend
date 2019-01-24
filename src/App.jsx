@@ -12,6 +12,7 @@ import ArticleUpdateForm from './components/Forms/articles/ArticleUpdateForm';
 import Article from './components/Article';
 import AllArticlesView from './views/articles/allArticles';
 import Footer from './views/Footer';
+import Profile from './views/Profile';
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class App extends Component {
@@ -29,7 +30,8 @@ export default class App extends Component {
             <Route exact path="/articles" component={ArticleCreationForm} />
             <Route exact path="/articles/:art_slug" component={Article} />
             <Route exact path="/articles/:art_slug/edit" component={ArticleUpdateForm} />
-            <Footer />
+            <Route path="/profile" component={Profile} />
+           <Footer />
           </div>
         </BrowserRouter>
       </Provider>

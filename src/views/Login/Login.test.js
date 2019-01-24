@@ -16,7 +16,7 @@ describe('Login Component', () => {
   let loginContainer;
   let reduxLogin;
   beforeEach(() => {
-    loginContainer = shallow(<Login name="login" />);
+    loginContainer = shallow(<Login name='login' />);
     reduxLogin = mount(
       <Provider store={store}>
         <BrowserRouter>
@@ -33,7 +33,7 @@ describe('Login Component', () => {
     expect(loginContainer).toMatchSnapshot();
   });
   it('it renders props correctly', () => {
-    const login = shallow(<Login name="login" />);
+    const login = shallow(<Login name='login' />);
     expect(login.instance().props.name).toBe('login');
   });
   it('login should render with redux store', () => {

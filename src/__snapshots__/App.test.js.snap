@@ -55,6 +55,10 @@ exports[`App test Suite Should match snapshot 1`] = `
         exact={true}
         path="/articles/:art_slug/edit"
       />
+      <Route
+        component={[Function]}
+        path="/profile"
+      />
       <Footer />
     </div>
   </BrowserRouter>
