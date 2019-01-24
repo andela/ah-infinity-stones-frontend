@@ -4,8 +4,9 @@ import {
   SOCIAL_LOGIN_ERROR,
 } from './actionTypes';
 
-export const socialLoginRequest = data => ({
+export const socialLoginRequest = (platform, data = null) => ({
   type: SOCIAL_LOGIN_REQUEST,
+  platform,
   data,
 });
 

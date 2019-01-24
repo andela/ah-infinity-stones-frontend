@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import GoogleLogin from 'react-google-login';
 import { socialLoginRequest } from '../../redux/actions/socialLoginActions';
 import socialConfigs from '../../helpers/socialAuthHelpers';
-import firebaseAuth from '../../config/firebase';
 
 export class SocialLogin extends PureComponent {
   static propTypes = {
@@ -18,25 +17,20 @@ export class SocialLogin extends PureComponent {
 
   handleTwitter = async (event) => {
     event.preventDefault();
-    const response = await firebaseAuth.twitterAuth();
     const { socialLoginRequest: login } = this.props;
-    const info = socialConfigs.twitter(response.credential);
-    login(info);
+    login('twitter');
   }
 
   handleFacebookLogin = async (event) => {
     event.preventDefault();
-
-    const response = await firebaseAuth.facebookAuth();
     const { socialLoginRequest: login } = this.props;
-    const info = socialConfigs.facebook(response.credential);
-    login(info);
+    login('facebook');
   }
 
   handleGoogleLogin = (response) => {
     const info = socialConfigs.google(response);
     const { socialLoginRequest: login } = this.props;
-    login(info);
+    login('google', info);
   };
 
   handleRedirect = () => { window.location.href = '/'; };

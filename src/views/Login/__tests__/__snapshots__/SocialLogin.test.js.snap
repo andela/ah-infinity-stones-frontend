@@ -6,7 +6,7 @@ exports[`Social Login Component Should render properly 1`] = `
 >
   <button
     className="kep-login-facebook "
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     Facebook
@@ -25,9 +25,9 @@ exports[`Social Login Component Should render properly 1`] = `
     icon={true}
     isSignedIn={false}
     jsSrc="https://apis.google.com/js/api.js"
-    onFailure={[Function]}
+    onFailure={[MockFunction]}
     onRequest={[Function]}
-    onSuccess={[Function]}
+    onSuccess={[MockFunction]}
     prompt=""
     scope="profile email"
     tag="button"
@@ -37,7 +37,7 @@ exports[`Social Login Component Should render properly 1`] = `
   />
   <button
     id="twitter"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     Twitter

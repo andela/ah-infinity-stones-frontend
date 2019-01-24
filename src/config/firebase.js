@@ -1,4 +1,5 @@
-import firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAEumUftx2otLH_fazX21EoF4xiDnNGwZo',
@@ -9,19 +10,14 @@ firebase.initializeApp(firebaseConfig);
 
 const TwitterProvider = new firebase.auth.TwitterAuthProvider();
 
-const twitterAuth = async () => {
+export const twitterAuth = async () => {
   const response = await firebase.auth().signInWithPopup(TwitterProvider);
   return response;
 };
 
 const FacebookProvider = new firebase.auth.FacebookAuthProvider();
 
-const facebookAuth = async () => {
+export const facebookAuth = async () => {
   const response = await firebase.auth().signInWithPopup(FacebookProvider);
   return response;
-};
-
-export default {
-  twitterAuth,
-  facebookAuth,
 };
