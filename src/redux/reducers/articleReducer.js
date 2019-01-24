@@ -1,8 +1,10 @@
+/* eslint-disable no-case-declarations */
 import {
   CREATE_ARTICLE_SUCCESS, CREATE_ARTICLE_FAILURE,
   GET_ALL_ARTICLES_SUCCESS, GET_ALL_ARTICLES_FAILURE,
   GET_ONE_ARTICLE_SUCCESS, GET_ONE_ARTICLE_FAILURE,
-  UPDATE_ARTICLE, DELETE_ARTICLE,
+  UPDATE_ARTICLE, DELETE_ARTICLE, RATE_ARTICLE,
+  RATE_ARTICLE_SUCCESS, RATE_ARTICLE_FAILURE,
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -10,6 +12,8 @@ const initialState = {
   articles: [],
   error: {},
   specificArticle: {},
+  rated: false,
+  rate: 0,
 };
 
 export default (state = initialState, action) => {
@@ -54,6 +58,26 @@ export default (state = initialState, action) => {
       return {
         ...state,
         articles: newState,
+      };
+    case RATE_ARTICLE:
+      return {
+        ...state,
+        rated: false,
+        rate: action.payload.rating,
+      };
+    case RATE_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        rated: true,
+        error: action.payload,
+        rate: action.payload.rating,
+      };
+    case RATE_ARTICLE_FAILURE:
+      return {
+        ...state,
+        rated: false,
+        error: action.payload,
+        rate: action.payload.rating,
       };
     default:
       return state;

@@ -1,6 +1,6 @@
 import { baseURL } from '../components/common/constants';
 
-
+/* eslint-disable camelcase */
 export async function createArticle(article) {
   const response = await fetch(`${baseURL}articles`, {
     method: 'POST',
@@ -67,4 +67,18 @@ export async function deleteArticle(artSlug) {
     return response;
   }
   throw new Error(response);
+}
+
+export async function rateArticle(payload) {
+  const response = await fetch(`${baseURL}articles/${payload.art_slug}/rate`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-type': 'application/json',
+      Authorization: `${localStorage.getItem('Token')}`,
+    },
+    body: JSON.stringify({ rating: payload.rating }),
+  });
+  const data = await response.json();
+  return data;
 }

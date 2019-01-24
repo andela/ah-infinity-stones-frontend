@@ -1,14 +1,25 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-console */
+/* eslint-disable no-redeclare */
+
 import { put, takeLatest, call } from 'redux-saga/effects';
 import {
   createArticleSuccessAction, createArticleFailureAction,
   getAllArticlesSuccessAction, getAllArticlesFailureAction,
   getOneArticleSuccessAction, getOneArticleFailureAction,
-} from '../actions/articleActions';
+  rateArticleSuccessAction, rateArticleFailureAction,
+}
+  from '../actions/articleActions';
 import {
-  CREATE_ARTICLE, GET_ALL_ARTICLES_REQUEST, GET_ONE_ARTICLE_REQUEST, UPDATE_ARTICLE, DELETE_ARTICLE,
+  CREATE_ARTICLE,
+  GET_ALL_ARTICLES_REQUEST,
+  GET_ONE_ARTICLE_REQUEST,
+  UPDATE_ARTICLE,
+  DELETE_ARTICLE,
+  RATE_ARTICLE,
 } from '../actions/actionTypes';
 import {
-  createArticle, getAllArticles, getOneArticle, updateArticle, deleteArticle,
+  createArticle, getAllArticles, getOneArticle, updateArticle, deleteArticle, rateArticle,
 } from '../../services/articlePayload';
 
 function* createArticleSaga(action) {
@@ -23,10 +34,6 @@ function* createArticleSaga(action) {
     return (e.response);
   }
 }
-
-/**
- * The generator watches the createArticleSaga for event.
- */
 export function* watchCreateArticleSaga() {
   yield takeLatest(CREATE_ARTICLE, createArticleSaga);
 }
@@ -35,6 +42,7 @@ function* getAllArticlesSaga() {
   try {
     const response = yield call(getAllArticles);
     if (response[0].status === 200) {
+      console.log(response);
       yield put(getAllArticlesSuccessAction(response[1]));
     } else {
       yield put(getAllArticlesFailureAction(response[0].error));
@@ -100,4 +108,21 @@ function* deleteArticleSaga(action) {
  */
 export function* watchDeleteArticleSaga() {
   yield takeLatest(DELETE_ARTICLE, deleteArticleSaga);
+}
+function* rateArticleSaga(action) {
+  try {
+    const response = yield call(rateArticle, action.payload);
+    const article = yield call(getOneArticle, action.payload.art_slug);
+    if (response.message) {
+      yield put(getOneArticleSuccessAction(article[1]));
+      yield put(rateArticleSuccessAction(response.message));
+    } else {
+      yield put(rateArticleFailureAction(response));
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}
+export function* watchRateArticleSaga() {
+  yield takeLatest(RATE_ARTICLE, rateArticleSaga);
 }

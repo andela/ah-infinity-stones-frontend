@@ -5,9 +5,10 @@ import { Link, Redirect } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
 import './Article.scss';
-import { getOneArticleRequestAction, deleteArticleAction } from '../../redux/actions/articleActions';
+import { rateArticleAction, getOneArticleRequestAction, deleteArticleAction } from '../../redux/actions/articleActions';
 import { sendLike } from '../../redux/actions/likeActions';
 import jwtDecode from '../../../node_modules/jwt-decode';
+import StarRatings from 'react-star-ratings';
 
 
 class Article extends Component {
@@ -17,6 +18,10 @@ class Article extends Component {
     this.handleDeleteArticle = this.handleDeleteArticle.bind(this);
     this.author_only = React.createRef();
     this.reader_only = React.createRef();
+    this.state = {
+      rating: 0,
+      buttonStatus: true
+    };
   }
 
   componentDidMount() {
@@ -75,21 +80,39 @@ class Article extends Component {
     return isAuth !== 'true' ? alert('You need to login') : sendLike({ like: 'False' }, match.params.art_slug);
   }
 
-  handleDeleteArticle(event) {
+    handleDeleteArticle(event){
     event.preventDefault();
     this.props.deleteArticleAction(this.props.article.art_slug);
     this.props.history.push('/');
   }
 
-  handleEditArticle() {
-    this.props.history.push(`${this.props.article.art_slug}/edit`);
+  handleEditArticle(){
+    this.props.history.push(this.props.article.art_slug+'/edit');
   }
-
+ handleRatingClick = (event) =>{
+      this.setState({
+        rating: event,
+        buttonStatus: false
+      });
+      let payload = {
+        art_slug: this.props.match.params.art_slug,
+        rating: event,
+      }
+      let { rateArticleAction, rated } = this.props;
+      let div = document.getElementById('msg');
+      rateArticleAction(payload);
+      if(!rated){
+        div.innerHTML = "Thank you for rating this article.";
+      }
+      div.style.transition="opacity 6s";
+      div.style.opacity="0";
+  }
   render() {
     const {
       article, likeCount, dislikeCount, liked, disliked,
     } = this.props;
     const isAuth = localStorage.getItem('isLoggedIn');
+    let rate = parseInt(this.props.article.rating_average);
     const singleArticle = Object.keys(article).length ? (
       <div className="article">
         <div className="row article">
@@ -97,9 +120,17 @@ class Article extends Component {
             <div className="article-data">
               <div className="row">
                 <span className="article-rating">
-                  Rating:
-                  {' '}
-                  {article.rating_average}
+                  Average Rating
+                  <div>
+                    <StarRatings
+                      rating={rate}
+                      starRatedColor="#86C232"
+                      starDimension="20px"
+                      numberOfStars={5}
+                      disabled={true}
+                      name="rating"
+                    />
+                  </div>
                 </span>
               </div>
             </div>
@@ -155,11 +186,18 @@ class Article extends Component {
                 <i className="mdi mdi-thumb-down-outline" />
               </div>
               <div className="col" id="myRating">
-                <i className="mdi mdi-star-outline" />
-                <i className="mdi mdi-star-outline" />
-                <i className="mdi mdi-star-outline" />
-                <i className="mdi mdi-star-outline" />
-                <i className="mdi mdi-star-outline" />
+                  <b>Rate This Article</b><br/>
+                  <StarRatings
+                      rating={this.state.rating}
+                      starRatedColor="#86C232"
+                      starDimension="20px"
+                      starHoverColor="#86C232"
+                      changeRating={this.handleRatingClick}
+                      numberOfStars={5}
+                      disabled={this.state.buttonStatus}
+                      name='rating'
+                  /><br/>
+                  <span id="msg"></span>
               </div>
             </div>
             <div className="col article-social_media_urls">
@@ -246,6 +284,7 @@ const actionCreators = {
   getOneArticleRequestAction,
   deleteArticleAction,
   sendLike,
+  rateArticleAction,
 };
 
 

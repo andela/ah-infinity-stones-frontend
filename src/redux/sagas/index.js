@@ -5,24 +5,29 @@ import watchSignupSaga from './signupSaga';
 import watchSocialLogin from './socialLoginSaga';
 import { watchSendResetLink, watchPasswordreset } from './passworwordResetSagas';
 import {
-  watchCreateArticleSaga, watchGetOneArticleSaga,
-  watchGetAllArticlesSaga, watchDeleteArticleSaga, watchUpdateArticleSaga,
+  watchCreateArticleSaga,
+  watchGetOneArticleSaga,
+  watchGetAllArticlesSaga,
+  watchDeleteArticleSaga,
+  watchUpdateArticleSaga,
+  watchRateArticleSaga,
 } from './articleSaga';
 
 import { watchLike } from './likeSagas';
 
 export default function* rootSaga() {
   yield all([
-    watchSignupSaga(),
     watchLogin(),
+    watchSignupSaga(),
     watchSocialLogin(),
+    watchCreateArticleSaga(),
+    watchGetAllArticlesSaga(),
     watchSendResetLink(),
     watchPasswordreset(),
-    watchCreateArticleSaga(),
     watchUpdateArticleSaga(),
     watchGetOneArticleSaga(),
-    watchGetAllArticlesSaga(),
     watchDeleteArticleSaga(),
     watchLike(),
+    watchRateArticleSaga(),
   ]);
 }

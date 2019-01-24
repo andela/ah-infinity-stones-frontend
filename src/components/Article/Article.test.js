@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -9,12 +10,29 @@ import { sendLike } from '../../redux/actions/likeActions';
 import { likeSaga } from '../../redux/sagas/likeSagas';
 import likeReducer from '../../redux/reducers/likeReducer';
 import * as types from '../../redux/actions/actionTypes';
+import Articles from '../Articles/index';
+
 
 describe('Single Article Component', () => {
   let articleContainer;
   let reduxArticle;
+  let reduxArticles;
   beforeEach(() => {
     articleContainer = shallow(<Article />);
+    reduxArticles = mount(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Articles />
+        </BrowserRouter>
+      </Provider>,
+    );
+    reduxArticle = shallow(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Article />
+        </BrowserRouter>
+      </Provider>,
+    );
   });
   it('Article renders successfully', () => {
     // let article_div = articleContainer.find('div')
