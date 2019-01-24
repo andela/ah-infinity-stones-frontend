@@ -10,7 +10,7 @@ const LoginForm = ({
   errors, submitEnabled, email, password,
 }) => (
     <div className="container" id="loginForm">
-      <form>
+      <form className="authenticationForm">
         <div className="head">Login</div>
         <hr />
         <div className="form-group">
@@ -48,13 +48,16 @@ const LoginForm = ({
           disabled={!submitEnabled}
         >
           Submit
-      </button>
-      <Link to="/reset" className="forgot">Forgot password?</Link>
-      <p id="signup">
-        Dont have an account?
-      {' '}
-        <Link to="/register">Sign Up</Link>
-      </p>
+  </button>
+        <Link to="/user/Resetlink" className="forgot">Forgot password?</Link>
+          <p id='or'>OR</p><br /><br />
+        <SocialLogin />
+        <br />
+        <p id="signup">
+          Dont have an account?
+  {' '}
+          <Link to="/signup">Sign Up</Link>
+        </p>
 
       </form>
     </div>

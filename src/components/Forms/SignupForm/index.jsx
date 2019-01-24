@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const SignupForm = ({handleChange, handleSubmit, handleSuccess, messages, error}) =>(
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className= "authenticationForm" >
             <div className="head">Signup</div>
             <hr/>
                 <div className="form-group">
