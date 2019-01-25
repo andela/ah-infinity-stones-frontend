@@ -112,7 +112,10 @@ class Article extends Component {
       article, likeCount, dislikeCount, liked, disliked,
     } = this.props;
     const isAuth = localStorage.getItem('isLoggedIn');
-    let rate = parseInt(this.props.article.rating_average);
+    let rate = 0;
+    if(this.props.article.rating_average !== null){
+      rate = parseInt(this.props.article.rating_average);
+    }
     const singleArticle = Object.keys(article).length ? (
       <div className="article">
         <div className="row article">
