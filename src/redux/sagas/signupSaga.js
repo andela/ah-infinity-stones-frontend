@@ -9,7 +9,7 @@ import {
 } from '../actions/signupActions';
 import { SIGNUP_REQUEST } from '../actions/actionTypes';
 import register from '../../services/signupPayload';
-import { saveToken } from '../../services/auth/token';
+// import { saveToken } from '../../services/auth/token';
 
 /**
  *
@@ -21,7 +21,7 @@ function* signupSaga(action) {
     const response = yield call(register, action.payload);
     if (response.user) {
       yield put(signupSuccessAction(response.user));
-      yield put(saveToken(response.user.Token));
+      localStorage.setItem('Token', response.user.Token);
     } else {
       yield put(signupFailureAction(response.errors));
     }

@@ -11,7 +11,6 @@ export async function passwordReset(email) {
       },
       body: JSON.stringify({ email }),
     });
-    console.log(response);
     const data = await response.json();
     return data;
   } catch (e) {

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -71,6 +72,9 @@ describe('Action Creators', () => {
     };
     expect(actions.getAllArticlesRequestAction()).toEqual(expectedAction);
   });
+});
+
+describe('Show all articles', () => {
   it('should update the articles to the state', () => {
     const articles = '{art_slug: "how-to-make", author: "Ronny",body: "You have to pray", description: "Ever wonder how?"}';
     const expectedAction = {

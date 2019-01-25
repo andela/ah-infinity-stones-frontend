@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+/* eslint-disable no-shadow */
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -32,13 +35,13 @@ describe('async actions', () => {
     const article = '{body: "You have to pray and play", description: "Ever wonder how?", title: "winning the jackpot", tags: "sportpesa"}';
     const articleSuccess = '{art_slug: "winning-the-jackpot", author: "Ronny",body: "You have to pray and play", description: "Ever wonder how?"}';
     const error = '{type: "cors", url: "https://cors-anywhere.herokuapp.com/ah-infinites-staging.herokuapp.com/api/articles", redirected: false, status: 500, ok: false';
-    
+
     fetchMock.getOnce('/articles', {
       body: article,
       headers: {
         Accept: 'application/json',
         'Content-type': 'application/json',
-        Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJvbm55bWFnZWhAZ21haWwuY29tIiwidXNlcm5hbWUiOiJSb25ueSIsImV4cCI6MTU1MDQzMTkwM30.BFFFIlWsNj6mpKijYeDqi7rS-uK39Z4tLTXcivZyHHI'
+        Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJvbm55bWFnZWhAZ21haWwuY29tIiwidXNlcm5hbWUiOiJSb25ueSIsImV4cCI6MTU1MDQzMTkwM30.BFFFIlWsNj6mpKijYeDqi7rS-uK39Z4tLTXcivZyHHI',
       },
     });
     const expectedActions = [

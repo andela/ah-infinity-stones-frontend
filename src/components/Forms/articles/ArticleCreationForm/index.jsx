@@ -23,6 +23,10 @@ class ArticleCreation extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  componentDidUpdate() {
+    this.props.history.push('/');
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const article = {

@@ -6,9 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -49,11 +47,14 @@ a:hover, i:hover {
   height: 40px;
   width: 40px;
 }
+ul {
+  list-style-type: none;
+}
 /* page content above the footer */
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -120px; 
+  margin-bottom: -120px;
 }
 .page-wrap:after {
   content: "";
@@ -93,11 +94,9 @@ footer a{
    color: #86C232;
 }
 @media all and (max-width: 600px) {
-
   .container {
     flex-wrap: wrap;
   }
-
   .container > li {
     flex-basis: 50%;
   }

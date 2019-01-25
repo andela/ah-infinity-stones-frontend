@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
-    const footer_content = ( 
-        
+    const footer_content = (
+
                 <div className="container">
                     <div className="row" id="footer-row">
                         <div className="col">
@@ -34,15 +34,11 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-        
-        
-    
     )
   return (
     <footer className="footer">
         {footer_content}
     </footer>
-    
   )
 }
 export default Footer
