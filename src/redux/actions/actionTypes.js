@@ -26,3 +26,6 @@ export const GET_ONE_ARTICLE_FAILURE = 'GET_ONE_ARTICLE_FAILURE';
 export const EDIT_ARTICLE = 'EDIT_ARTICLE';
 export const UPDATE_ARTICLE = 'UPDATE_ARTICLE';
 export const DELETE_ARTICLE = 'DELETE_ARTICLE';
+export const SEND_LIKE = 'SEND_LIKE';
+export const LIKE_SUCCESS = 'LIKE_SUCCESS';
+export const LIKE_ERROR = 'LIKE_ERROR';

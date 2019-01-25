@@ -10,9 +10,10 @@ import ResetLink from './components/User/ResetPassword/ResetLink';
 import ArticleCreationForm from './components/Forms/articles/ArticleCreationForm';
 import ArticleUpdateForm from './components/Forms/articles/ArticleUpdateForm';
 import Article from './components/Article';
-import Footer from './views/Footer';
 import AllArticlesView from './views/articles/allArticles';
+import Footer from './views/Footer';
 
+// eslint-disable-next-line react/prefer-stateless-function
 export default class App extends Component {
   render() {
     return (

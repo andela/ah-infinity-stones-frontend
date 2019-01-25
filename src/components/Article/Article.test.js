@@ -1,23 +1,20 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { shallow, mount } from 'enzyme';
+import { call } from 'redux-saga/effects';
 import store from '../../redux/store';
 import Article from './index';
-
+import like from '../../services/like';
+import { sendLike } from '../../redux/actions/likeActions';
+import { likeSaga } from '../../redux/sagas/likeSagas';
+import likeReducer from '../../redux/reducers/likeReducer';
+import * as types from '../../redux/actions/actionTypes';
 
 describe('Single Article Component', () => {
   let articleContainer;
   let reduxArticle;
   beforeEach(() => {
     articleContainer = shallow(<Article />);
-    reduxArticle = shallow(
-      <Provider store={store}>
-        <BrowserRouter>
-          <Article />
-        </BrowserRouter>
-      </Provider>,
-    );
   });
   it('Article renders successfully', () => {
     // let article_div = articleContainer.find('div')
@@ -38,7 +35,9 @@ describe('single article mount', () => {
       art_slug: 'js-testing',
     },
   };
-  const article = { art_slug: "smileys", title: "smileys", description: "emoji are working", body: "<p>there…y are that's awespome</p>", read_time: 1};
+  const article = {
+    art_slug: 'smileys', title: 'smileys', description: 'emoji are working', body: '<p>there…y are thats awespome</p>', read_time: 1,
+  };
   it('Article renders successfully', () => {
     // let article_div = articleContainer.find('div')
     reduxArticle = mount(
@@ -49,5 +48,44 @@ describe('single article mount', () => {
       </Provider>,
     );
     expect(reduxArticle.exists()).toEqual(true);
+  });
+});
+describe('Like functionality', () => {
+  it('sends action of type SEND_LIKE', () => {
+    const likeAction = sendLike({ like: 'False' }, 'sample-slug');
+    expect(likeAction.type).toEqual('SEND_LIKE');
+  });
+  it('works with sagas', () => {
+    const likeData = { likeData: { like: 'False' }, artSlug: 'sample-slug' };
+    const generator = likeSaga(likeData);
+    expect(generator.next().value).toEqual(call(like, likeData.likeData, likeData.artSlug));
+  });
+  it('has an initial state', () => {
+    expect(likeReducer(undefined, { type: undefined })).toEqual({
+      success: null,
+      error: null,
+      dislikeCount: null,
+      likeCount: null,
+      liked: null,
+      disliked: null,
+    });
+  });
+  it('it can send a like/dislike request', () => {
+    expect(likeReducer(undefined, {
+      type: types.SEND_LIKE,
+    })).toEqual({
+      success: null,
+      error: null,
+      dislikeCount: null,
+      likeCount: null,
+      liked: null,
+      disliked: null,
+    });
+  });
+  it('Like endpoint needs auth', async () => {
+    const slug = 'like-this';
+    const likeData = { likeData: { like: 'False' } };
+    const data = await like(likeData, slug);
+    expect(data.detail).toEqual('Your token is invalid. ');
   });
 });

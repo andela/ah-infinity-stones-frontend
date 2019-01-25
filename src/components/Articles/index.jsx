@@ -33,6 +33,8 @@ class GetAllArticles extends Component {
   }
 }
 const mapStateToProps = (state) => {
+  console.log('in all articles');
+  console.log(state);
   return {
     articles: state.articleReducer.articles,
   };

@@ -6,7 +6,6 @@ import '../../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.cs
 
 
 class EditorConvertToHTML extends Component {
-
   state = {
     editorState: EditorState.createEmpty(),
   }
@@ -43,8 +42,10 @@ class EditorConvertToHTML extends Component {
         />
         <textarea
           id="articleBody"
+          name="articleBody"
           disabled
           value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
+          required
         />
       </div>
     );

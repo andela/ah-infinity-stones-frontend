@@ -5,6 +5,7 @@ import passwordReset from './passwordResetReducer';
 
 import loginReducer from './loginReducer';
 import articleReducer from './articleReducer';
+import likeReducer from './likeReducer';
 
 export default combineReducers({
   socialLoginReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   signupReducer,
   passwordReset,
   articleReducer,
+  likeReducer,
 });
