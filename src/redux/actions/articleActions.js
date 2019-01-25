@@ -20,6 +20,7 @@ import {
   GET_BY_TAGS_REQUEST,
   GET_BY_TAGS_SUCCESS,
   GET_BY_TAGS_ERROR,
+  REPORT_ARTICLE,
 } from './actionTypes';
 
 export const createArticleAction = article => ({
@@ -96,4 +97,8 @@ export const getByTagsSuccess = data => ({
 export const getByTagsError = error => ({
   type: GET_BY_TAGS_ERROR,
   error,
+});
+export const reportArticleAction = reportMessage => ({
+  type: REPORT_ARTICLE,
+  payload: reportMessage,
 });

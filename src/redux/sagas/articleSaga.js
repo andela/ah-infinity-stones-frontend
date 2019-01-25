@@ -17,9 +17,11 @@ import {
   UPDATE_ARTICLE,
   DELETE_ARTICLE,
   RATE_ARTICLE,
+  REPORT_ARTICLE,
 } from '../actions/actionTypes';
 import {
   createArticle, getAllArticles, getOneArticle, updateArticle, deleteArticle, rateArticle,
+  reportArticle,
 } from '../../services/articlePayload';
 
 function* createArticleSaga(action) {
@@ -124,4 +126,23 @@ function* rateArticleSaga(action) {
 }
 export function* watchRateArticleSaga() {
   yield takeLatest(RATE_ARTICLE, rateArticleSaga);
+}
+
+function* reportArticleSaga(action) {
+  try {
+    const response = yield call(reportArticle, action.payload);
+    if (response.message === 'You have reported this article to the admin.') {
+      return response.message;
+    }
+    return response.error;
+  } catch (e) {
+    return (e.response);
+  }
+}
+
+/**
+ * The generator watches the createArticleSaga for event.
+ */
+export function* watchReportArticleSaga() {
+  yield takeLatest(REPORT_ARTICLE, reportArticleSaga);
 }
