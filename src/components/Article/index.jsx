@@ -145,10 +145,13 @@ class Article extends Component {
             <div className="article-stats">
               <span className="article-author">{article.author.username}</span>
               <span className="article-read_time">
+              <i className="mdi mdi-calendar-clock mdi-24px" />
+              &nbsp;
                 {
                   article.read_time
                 }
-                -Min Read
+              &nbsp;
+                Minute Read
               </span>
             </div>
             <div className="article-body">{ReactHtmlParser(this.props.article.body)}</div>
