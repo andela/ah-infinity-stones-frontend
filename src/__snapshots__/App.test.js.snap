@@ -52,6 +52,10 @@ exports[`App test Suite Should match snapshot 1`] = `
       />
       <Route
         component={[Function]}
+        path="/tags/:tag"
+      />
+      <Route
+        component={[Function]}
         exact={true}
         path="/articles/:art_slug/edit"
       />

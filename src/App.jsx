@@ -10,6 +10,7 @@ import ResetLink from './components/User/ResetPassword/ResetLink';
 import ArticleCreationForm from './components/Forms/articles/ArticleCreationForm';
 import ArticleUpdateForm from './components/Forms/articles/ArticleUpdateForm';
 import Article from './components/Article';
+import ArticleByTags from './components/Articles/ArticleByTags';
 import AllArticlesView from './views/articles/allArticles';
 import Footer from './views/Footer';
 import Profile from './views/Profile';
@@ -29,6 +30,7 @@ export default class App extends Component {
             <Route path="/user/Resetlink" component={ResetLink} />
             <Route exact path="/articles" component={ArticleCreationForm} />
             <Route exact path="/articles/:art_slug" component={Article} />
+            <Route path="/tags/:tag" component={ArticleByTags} />
             <Route exact path="/articles/:art_slug/edit" component={ArticleUpdateForm} />
             <Route path="/profile" component={Profile} />
            <Footer />

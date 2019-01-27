@@ -43,7 +43,7 @@ describe('All Articles Component', () => {
   });
   it('Check if class card starts with "no articles to show"', () => {
     const text = reduxArticles.find('div.card').text();
-    expect(text).toEqual('No articles to show');
+    expect(text).toEqual('Loading...');
   });
   it('articles component should match snapshot', () => {
     expect(articlesContainer.getElements()).toMatchSnapshot();

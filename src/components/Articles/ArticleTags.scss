@@ -1,0 +1,41 @@
+.body{
+    display: block;
+    display: -webkit-box;
+    // max-width: 500px;
+    height: 145px;
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.hght { height: 75vh !important; }
+.art{
+    float: right;
+    padding: 1px 3px;
+    margin-right: 15px;
+    color:#86C232 !important;
+    border: solid 1px #86C232 !important;
+    &:hover {
+        color: #fff !important;
+    }
+}
+
+.read {
+    margin-top: 20px;
+}
+
+.num {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    // margin: auto;
+}
+.art-link{
+    &:visited {
+        color:#86C232 !important;
+    }
+    color:#86C232;
+}
