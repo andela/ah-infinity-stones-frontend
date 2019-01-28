@@ -14,10 +14,10 @@ let ProfileItem = ({ item, user }) => (item ? (
           <div className='profile-list'>
             <img className='icon-user' src={item.image} alt='' />
             {buffer('image', item.image)}
-            <h2 className='theme'>
+            <h5 className='theme'>
 @
               {user.username}
-            </h2>
+            </h5>
             <strong>
               <i className='mdi mdi-email-variant' />
             </strong>

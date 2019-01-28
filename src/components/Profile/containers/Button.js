@@ -6,9 +6,7 @@ import { getProfile } from '../../../redux/actions/profileActions';
 
 let Button = ({ getProfile }) => (
   <div>
-    <div className='jumbotron text-center'>
-      <h1>My Profile</h1>
-    </div>
+    <p>&nbsp;</p>
     <button type='button' className='button'>
       <span className='theme'>
         <i className='mdi mdi-book-open-page-variant mdi-24px' />
@@ -17,19 +15,24 @@ let Button = ({ getProfile }) => (
       My Articles
     </button>
     {' '}
-    <button type='button' className='button'>
-      <Link to='/bookmarks'>
+    <Link to='/bookmarks'>
+      <button type='button' className='button'>
+
         <span className='theme'>
           <i className='mdi mdi-bookmark mdi-24px' />
         </span>
         {' '}
         Bookmarks
-      </Link>
-    </button>
+
+      </button>
+    </Link>
     {' '}
     <button type='button' onClick={getProfile} className='button button-theme'>
-      <i className='mdi mdi-reload mdi-24px' />
-      Reload
+      <span className='theme'>
+        <i className='mdi mdi-reload mdi-24px' />
+      </span>
+      {' '}
+      Refresh
     </button>
   </div>
 );

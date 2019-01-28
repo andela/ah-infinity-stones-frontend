@@ -17,6 +17,7 @@ import SocialShare from '../ArticleShare/shareArticle';
 import ReportArticle from './ReportArticle';
 import BookMarkArticle from '../Bookmark/bookmark';
 
+import Comment from '../../views/Comment'
 
 class Article extends Component {
   constructor(props) {
@@ -121,22 +122,26 @@ class Article extends Component {
    this.props.history.push('/');
  }
 
- render() {
-   const {
-     article, likeCount, dislikeCount, liked, disliked,
-   } = this.props;
-   const isAuth = localStorage.getItem('isLoggedIn');
-   let rate = 0;
-   if (this.props.article.rating_average !== null) {
-     rate = parseInt(this.props.article.rating_average);
-   }
-   const singleArticle = Object.keys(article).length ? (
-     <div className='article'>
-       <div className='row article'>
-         <div className='col-2'>
-           <div className='article-data'>
-             <div className='row'>
-               <span className='article-rating'>
+  getSlug(){
+    return this.props.match.params.art_slug
+  }
+
+  render() {
+    const {
+      article, likeCount, dislikeCount, liked, disliked,
+    } = this.props;
+    const isAuth = localStorage.getItem('isLoggedIn');
+    let rate = 0;
+    if(this.props.article.rating_average !== null){
+      rate = parseInt(this.props.article.rating_average);
+    }
+    const singleArticle = Object.keys(article).length ? (
+      <div className="article">
+        <div className="row article">
+          <div className="col-2">
+            <div className="article-data">
+              <div className="row">
+                <span className="article-rating">
                   Average Rating
                  <div>
                    <StarRatings
@@ -262,10 +267,10 @@ class Article extends Component {
              />
              <br />
            </div>
-           <div id='article-comments'>
-             <h3>Comments</h3>
-             <input type='text' placeholder='Write a comment...' />
-           </div>
+           <div id="article-comments">
+              <h3>Comments</h3>
+              {localStorage.getItem('Token')===null ? <Comment slug={this.getSlug()}/> : <Comment slug={this.getSlug()}/>}
+            </div>
            <div />
          </div>
          <div className='col-2'>
