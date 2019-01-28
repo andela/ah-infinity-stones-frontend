@@ -18,6 +18,8 @@ module.exports = {
     rules: {
         'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
         'import/no-extraneous-dependencies': ['error', { 'devDependencies': true }],
+        'no-shadow': 'off',
+        'jsx-quotes':['error', 'prefer-single']
     },
     plugins: ['react'],
     parser: 'babel-eslint',

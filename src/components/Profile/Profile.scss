@@ -1,0 +1,261 @@
+$font-stack: "Segoe UI", Arial, sans-serif;
+$primary-color: #86c232;
+$secondary-color: #da2687;
+$another-color: #f0ff0f;
+
+// %message-shared is extended below.
+// $npm run build-css will print in generated css
+%message-shared {
+  border: 4px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+// %equal-heights is not extended.
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body {
+  font: $font-stack; 
+
+}
+
+.app-header {
+  background-color: $primary-color;
+}
+
+.app-link {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.spinner {
+  color: $another-color;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success {
+  @extend %message-shared;
+  border-color: #86c232;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: yellow;
+}
+
+// normalize adDed
+section {
+  margin: 10px;
+  text-align: left;
+  color: #282c34;
+}
+.dark {
+  color: #282c34;
+}
+
+.theme{
+  color: $primary-color !important;
+}
+
+/*------------------------------------------------------------------------------*/
+/* BUTTONS */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+
+.button {
+  background-color: #ddd;
+  border: 0;
+  border-radius: 4px !important;
+  color: #777 !important;
+
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.9em;
+
+  height: 4em;
+  line-height: 4em;
+  padding: 0 3em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none !important;
+  white-space: nowrap;
+  margin-bottom: 3px;
+}
+
+// button:focus {
+//   outline: 0;
+// }
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+// button:hover,
+.button:hover {
+  color: #888 !important;
+  background-color: #ccc;
+}
+
+/*COLORED buttons-------*/
+.button-error {
+  /**/
+  color: #bbb !important;
+  background-color: #c00;
+}
+.button-error:hover {
+  color: #ccc !important;
+  background-color: #f00;
+}
+
+.button-theme {
+  color: #bbb !important;
+  background-color: #628835;
+  margin-bottom: 26px;
+}
+.button-theme:hover {
+  color: #fff !important;
+  background-color: #88c03e;
+}
+
+.theme {
+  color: #628835;
+}
+
+// .subscribe{
+//   color: #fff !important;
+//   background-color: #474b4f !important;
+// }
+
+/*------------------------------------------------------------------------------*/
+/* FORMS */
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+  /**/
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 4px; font-size: 14px !important;
+
+  margin-top: 0px;
+  margin-bottom: 26px;
+}
+
+textarea {
+  resize: vertical; font-family: 'Courier New', Courier, monospace;
+}
+
+/*------------------------------------------------------------------------------*/
+/* IMG */
+img.logo {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  padding: 1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+img.icon-small {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  padding: 1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+img.icon-user {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  padding: 1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-top: 13px;
+}
+
+img.icon-big {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+  padding: 1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-top: 13px;
+}
+img.icon-small-sq {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 3px;
+  padding: 1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+img.icon-big-sq {
+  width: 150px;
+  height: 150px;
+
+  border-radius: 3px;
+  padding: 1px;
+  border: 1px solid #ddd;
+  margin-top: 13px;
+}
+
+.login-footer {
+  font-size: 0.8em;
+}
+
+.m-profile {
+  margin-bottom: 4px;
+}
+.m-profile > label {
+  font-size: 14px;
+  color: #628835;
+}
+
+.alert-msg {
+  font-size: 1.5em !important; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-list > i {
+  color: #628835;
+}
+
+a.colored:link,
+a.colored:visited {
+  color: #777;
+  text-decoration: none;
+}
+a.colored:hover {
+  color: #628835;
+  text-decoration: underline;
+}
+
+a.socialMediaIcon:link,
+a.socialMediaIcon:visited {
+  color: #777;
+  text-decoration: none;
+}
+a.socialMediaIcon:hover {
+  color: #628835;
+  text-decoration: underline;
+}

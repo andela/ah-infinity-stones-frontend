@@ -12,6 +12,7 @@ import {
   watchUpdateArticleSaga,
   watchRateArticleSaga,
 } from './articleSaga';
+import watchProfile from './profileSagas';
 
 import { watchLike } from './likeSagas';
 
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     watchDeleteArticleSaga(),
     watchLike(),
     watchRateArticleSaga(),
+    watchProfile(),
   ]);
 }

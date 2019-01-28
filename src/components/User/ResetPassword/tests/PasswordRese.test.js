@@ -8,7 +8,7 @@ describe('ResetPassword form', () => {
   let passwordkContainer;
   let reduxpassword;
   beforeEach(() => {
-    passwordkContainer = shallow(<ResetPassword className="form_container" />);
+    passwordkContainer = shallow(<ResetPassword className='form_container' />);
     reduxpassword = mount(
       <Provider store={store}>
         <BrowserRouter>
@@ -27,7 +27,7 @@ describe('ResetPassword form', () => {
     expect(reduxpassword.exists()).toEqual(true);
   });
   it('renders props correctly', () => {
-    const Reset = shallow(<ResetPassword name="ResetPassword" />);
+    const Reset = shallow(<ResetPassword name='ResetPassword' />);
     expect(Reset.instance().props.name).toBe('ResetPassword');
   });
 });

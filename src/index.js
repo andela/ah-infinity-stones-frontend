@@ -5,9 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './assets/fonts/font-awesome.min.css';
 import './assets/fonts/materialdesignicons.min.css';
-import './assets/css/main.scss';
+import './assets/styles/main.scss';
 import './components/Forms/LoginForm/LoginForm.scss';
 import './views/Login/Login.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

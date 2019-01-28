@@ -8,7 +8,7 @@ describe('ResetPassword link component', () => {
   let resetLinkContainer;
   let reduxResetLink;
   beforeEach(() => {
-    resetLinkContainer = shallow(<Resetlink className="form_container" />);
+    resetLinkContainer = shallow(<Resetlink className='form_container' />);
     reduxResetLink = mount(
       <Provider store={store}>
         <BrowserRouter>
@@ -27,7 +27,7 @@ describe('ResetPassword link component', () => {
     expect(reduxResetLink.exists()).toEqual(true);
   });
   it('renders props correctly', () => {
-    const Reset = shallow(<Resetlink name="Resetlink" />);
+    const Reset = shallow(<Resetlink name='Resetlink' />);
     expect(Reset.instance().props.name).toBe('Resetlink');
   });
 });
