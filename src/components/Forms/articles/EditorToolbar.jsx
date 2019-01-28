@@ -51,4 +51,4 @@ class EditorConvertToHTML extends Component {
   }
 }
 
-export default EditorConvertToHTML;
+export default EditorConvertToHTML

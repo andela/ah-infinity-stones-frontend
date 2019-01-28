@@ -5,8 +5,9 @@ import {
   CREATE_ARTICLE, CREATE_ARTICLE_SUCCESS, CREATE_ARTICLE_FAILURE,
   GET_ALL_ARTICLES_REQUEST, GET_ALL_ARTICLES_SUCCESS, GET_ALL_ARTICLES_FAILURE,
   GET_ONE_ARTICLE_REQUEST, GET_ONE_ARTICLE_SUCCESS, GET_ONE_ARTICLE_FAILURE,
-  EDIT_ARTICLE, UPDATE_ARTICLE, DELETE_ARTICLE, RATE_ARTICLE, RATE_ARTICLE_SUCCESS,
-  RATE_ARTICLE_FAILURE,
+  EDIT_ARTICLE, UPDATE_ARTICLE, DELETE_ARTICLE,
+  RATE_ARTICLE, RATE_ARTICLE_SUCCESS, RATE_ARTICLE_FAILURE,
+  GET_BY_TAGS_REQUEST, GET_BY_TAGS_SUCCESS, GET_BY_TAGS_ERROR,
 } from './actionTypes';
 
 
@@ -22,7 +23,6 @@ export const createArticleFailureAction = error => ({
   type: CREATE_ARTICLE_FAILURE,
   payload: error,
 });
-
 export const getAllArticlesRequestAction = () => ({
   type: GET_ALL_ARTICLES_REQUEST,
 });
@@ -70,4 +70,19 @@ export const rateArticleSuccessAction = payload => ({
 export const rateArticleFailureAction = payload => ({
   type: RATE_ARTICLE_FAILURE,
   payload,
+});
+
+export const getByTagsRequest = tag => ({
+  type: GET_BY_TAGS_REQUEST,
+  tag,
+});
+
+export const getByTagsSuccess = data => ({
+  type: GET_BY_TAGS_SUCCESS,
+  data,
+});
+
+export const getByTagsError = error => ({
+  type: GET_BY_TAGS_ERROR,
+  error,
 });

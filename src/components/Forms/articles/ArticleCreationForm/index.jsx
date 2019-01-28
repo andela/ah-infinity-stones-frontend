@@ -10,30 +10,20 @@ class ArticleCreation extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {
-      articleTitle: '',
-      articleDescription: '',
-      articleBody: '',
-      articleTags: '',
-    };
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
   }
 
   componentDidUpdate() {
     this.props.history.push('/');
+    // this.props.history.push('/articles/'+this.props.article.art_slug);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const article = {
-      title: this.state.articleTitle,
-      description: this.state.articleDescription,
+      title: document.getElementById('articleTitle').value,
+      description: document.getElementById('articleDescription').value,
       body: document.getElementById('articleBody').value,
-      tag: this.state.articleTags.split(','),
+      tag: [document.getElementById('articleTags').value],
     };
     this.props.createArticleAction(article);
   }
@@ -45,20 +35,15 @@ class ArticleCreation extends Component {
           <form id="articleForm" method="post" encType="multipart/form-data" onSubmit= {this.handleSubmit}>
             <ul className="article-creation-form">
               <li><label htmlFor="articleTitle">Title</label></li>
-              <li><input type="text" name="articleTitle" id="articleTitle" placeholder="Title" required onChange={this.onChange} /></li>
+              <li><input type="text" name="articleTitle" id="articleTitle" placeholder="Title" /></li>
               <li><label htmlFor="articleDescription">Description</label></li>
-              <li><textarea name="articleDescription" id="articleDescription" placeholder="Add a two-line version of your story." required onChange={this.onChange} /></li>
+              <li><textarea name="articleDescription" id="articleDescription" placeholder="Add a two-line version of your story." /></li>
               <li><label htmlFor="articleBody">Body</label></li>
               <div id="toolbar-container" />
               <li><EditorToolbar /></li>
               <li><label htmlFor="articleTags">Tags</label></li>
-              <li><input type="text" name="articleTags" id="articleTags" placeholder="Tags" required onChange={this.onChange} /></li>
-              <li>
-                <button type="submit" className="btn btn-primary" id="publishBtn">
-                  <i className="mdi mdi-pencil icon-publish" />
-                  Publish
-                </button>
-              </li>
+              <li><input type="text" name="articleTags" id="articleTags" placeholder="Tags" /></li>
+              <li><button type="submit" id="publishBtn">Submit</button></li>
             </ul>
           </form>
         </div>

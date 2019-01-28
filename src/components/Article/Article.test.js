@@ -35,7 +35,6 @@ describe('Single Article Component', () => {
     );
   });
   it('Article renders successfully', () => {
-    // let article_div = articleContainer.find('div')
     expect(articleContainer.exists()).toEqual(true);
   });
   it('render 1 Article component', () => {

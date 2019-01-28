@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -49,6 +50,28 @@ a:hover, .socialMediaIcon:hover {
 }
 ul {
   list-style-type: none;
+}
+/* page content above the footer */
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -120px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+  height: 120px;
+}
+#read-more{
+  background-color: #86C232;
+  border-style: none;
+}
+ul {
+  list-style-type: none;
+}
+.navbar-brand img{
+  height: 40px;
+  width: 40px;
 }
 /* page content above the footer */
 .page-wrap {

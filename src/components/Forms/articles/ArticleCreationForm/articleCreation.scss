@@ -11,9 +11,8 @@ $secondary-color: #222629;
     display: flex;
     padding-right: 4em;
 }
-ul > li {
-    
-    text-decoration: none;
+.article-creation-form > li {
+    list-style:none;
   }
 ul > li > input, textarea {
     width: 100%;

@@ -42,7 +42,6 @@ function* getAllArticlesSaga() {
   try {
     const response = yield call(getAllArticles);
     if (response[0].status === 200) {
-      console.log(response);
       yield put(getAllArticlesSuccessAction(response[1]));
     } else {
       yield put(getAllArticlesFailureAction(response[0].error));

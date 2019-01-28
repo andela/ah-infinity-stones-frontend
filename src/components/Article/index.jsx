@@ -89,24 +89,26 @@ class Article extends Component {
   handleEditArticle(){
     this.props.history.push(this.props.article.art_slug+'/edit');
   }
+
  handleRatingClick = (event) =>{
-      this.setState({
-        rating: event,
-        buttonStatus: false
-      });
-      let payload = {
-        art_slug: this.props.match.params.art_slug,
-        rating: event,
-      }
-      let { rateArticleAction, rated } = this.props;
-      let div = document.getElementById('msg');
-      rateArticleAction(payload);
-      if(!rated){
-        div.innerHTML = "Thank you for rating this article.";
-      }
-      div.style.transition="opacity 6s";
-      div.style.opacity="0";
+    this.setState({
+      rating: event,
+      buttonStatus: false
+    });
+    let payload = {
+      art_slug: this.props.match.params.art_slug,
+      rating: event,
+    }
+    let { rateArticleAction, rated } = this.props;
+    let div = document.getElementById('msg');
+    rateArticleAction(payload);
+    if(!rated){
+      div.innerHTML = "Thank you for rating this article.";
+    }
+    div.style.transition="opacity 6s";
+    div.style.opacity="0";
   }
+
   render() {
     const {
       article, likeCount, dislikeCount, liked, disliked,
@@ -149,8 +151,19 @@ class Article extends Component {
                 -Min Read
               </span>
             </div>
-            <div className="article-body">{ReactHtmlParser(article.body)}</div>
-            <div className="article-tags">{article.tags}</div>
+            <div className="article-body">{ReactHtmlParser(this.props.article.body)}</div>
+            <div className="article-tags">
+              {
+                this.props.article.tag.map(tag => (
+                  <Link
+                    className="art-fun"
+                    to={`/tags/${tag}`}
+                  >
+                    {this.props.article.tag}
+                  </Link>
+                ))
+              }
+            </div>
             <div className="pull-right">
               <span className="caption code">
                 { dislikeCount === null ? article.dislikes_count : dislikeCount }

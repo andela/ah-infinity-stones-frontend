@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getAllArticlesRequestAction } from '../../redux/actions/articleActions';
 
-
 class GetAllArticles extends Component {
   componentDidMount() {
     this.props.getAllArticlesRequestAction();
@@ -23,7 +22,7 @@ class GetAllArticles extends Component {
           </div>
         );
       })
-    ) : (<div className="card">No articles to show</div>);
+    ) : (<div className="card">Loading...</div>);
     return (
       <div>
         <div className="page-header text-center"><h3>ALL ARTICLES</h3></div>
@@ -33,8 +32,6 @@ class GetAllArticles extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log('in all articles');
-  console.log(state);
   return {
     articles: state.articleReducer.articles,
   };
