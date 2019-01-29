@@ -15,6 +15,7 @@ import {
   watchReportArticleSaga,
   watchSearchArticleSaga,
 } from './articleSaga';
+import watchBookmark from './bookmarkSaga';
 import watchProfile from './profileSagas';
 import { watchLike } from './likeSagas';
 import watchBookmarks from './bookmarksSagas';
@@ -40,5 +41,6 @@ export default function* rootSaga() {
     watchReportArticleSaga(),
     watchBookmarks(),
     watchSearchArticleSaga(),
+    watchBookmark(),
   ]);
 }

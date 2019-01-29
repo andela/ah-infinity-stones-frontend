@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import signupReducer from './signupReducer';
 import socialLoginReducer from './socialLoginReducer';
 import passwordReset from './passwordResetReducer';
+import bookmarkReducer from './bookmarkReducer';
 
 import loginReducer from './loginReducer';
 import articleReducer from './articleReducer';
@@ -20,4 +21,5 @@ export default combineReducers({
   profileReducer,
   articleTagsReducer,
   bookmarksReducer,
+  bookmarkReducer,
 });

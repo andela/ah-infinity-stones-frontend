@@ -15,6 +15,8 @@ import { sendLike } from '../../redux/actions/likeActions';
 import jwtDecode from '../../../node_modules/jwt-decode';
 import SocialShare from '../ArticleShare/shareArticle';
 import ReportArticle from './ReportArticle';
+import BookMarkArticle from '../Bookmark/bookmark';
+
 
 class Article extends Component {
   constructor(props) {
@@ -222,20 +224,19 @@ class Article extends Component {
            <ReportArticle props={this.props} />
            <div className='row reader-only' ref={this.reader_only}>
              <div className='col article-report'>
-               <button
-                 type='button'
-                 id='reportArticleButton'
-                 className='btn btn-danger'
-                 onClick={this.handleEditArticle}
-               >
-                 <i className='mdi mdi-alert' />
-                REPORT
-               </button>
-             </div>
-             <div className='col article-like-dislike'>
-               <i className='mdi mdi-thumb-up-outline' />
-               <i className='mdi mdi-thumb-down-outline' />
-             </div>
+                <button
+                  type='button'
+                  id='reportArticleButton'
+                  className='btn btn-danger'
+                  onClick={this.handleEditArticle}
+                >
+                  <i className='mdi mdi-alert' />
+                  REPORT
+                </button>
+              </div>
+            <BookMarkArticle
+              slug={this.props.article.art_slug}
+            />
              <div className='col' id='myRating'>
                <b>Rate This Article</b>
                <br />
