@@ -17,7 +17,6 @@ if (token === null) {
 }
 
 export const { username } = decodedToken;
-console.log(username, 'in service!');
 export const firstname = localStorage.getItem('firstname');
 export const lastname = localStorage.getItem('lastname');
 export const birthday = localStorage.getItem('birthday');

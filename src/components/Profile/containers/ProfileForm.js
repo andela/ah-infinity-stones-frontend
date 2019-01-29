@@ -44,7 +44,6 @@ class ProfileForm extends Component {
       image,
       bio,
     };
-    console.log(data);
     const { updateProfile } = this.props;
     updateProfile(data);
   }
@@ -76,7 +75,7 @@ class ProfileForm extends Component {
             <h1>
               <i className='fa fa-pencil' />
               {' '}
-Edit Profile
+              Edit Profile
             </h1>
             <p>
               <strong>Please edit your profile and save changes.</strong>
@@ -153,7 +152,7 @@ Edit Profile
               >
                 <i className='mdi mdi-floppy mdi-24px' />
                 {' '}
-Update
+                Update
               </button>
             </form>
           </div>

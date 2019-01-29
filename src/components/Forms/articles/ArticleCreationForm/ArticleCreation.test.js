@@ -120,12 +120,14 @@ describe('Action Creators', () => {
     };
     expect(actions.createArticleSuccessAction(article)).toEqual(expectedAction);
   });
+
   it('should catch error', () => {
     const error = '{type: "cors", url: "https://cors-anywhere.herokuapp.com/ah-infinites-staging.herokuapp.com/api/articles", redirected: false, status: 500, ok: false';
     const expectedAction = {
       type: CREATE_ARTICLE_FAILURE,
       payload: error,
     };
+
     expect(actions.createArticleFailureAction(error)).toEqual(expectedAction);
   });
 });
