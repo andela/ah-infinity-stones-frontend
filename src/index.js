@@ -8,7 +8,7 @@ import './assets/fonts/materialdesignicons.min.css';
 import './assets/styles/main.scss';
 import './components/Forms/LoginForm/LoginForm.scss';
 import './views/Login/Login.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

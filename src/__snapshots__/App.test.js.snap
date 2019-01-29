@@ -63,6 +63,10 @@ exports[`App test Suite Should match snapshot 1`] = `
         component={[Function]}
         path="/profile"
       />
+      <Route
+        component={[Function]}
+        path="/bookmarks"
+      />
       <Footer />
     </div>
   </BrowserRouter>

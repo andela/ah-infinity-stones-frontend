@@ -15,8 +15,8 @@ import {
   watchReportArticleSaga,
 } from './articleSaga';
 import watchProfile from './profileSagas';
-
 import { watchLike } from './likeSagas';
+import watchBookmarks from './bookmarksSagas';
 
 export default function* rootSaga() {
   yield all([
@@ -37,5 +37,6 @@ export default function* rootSaga() {
     watchProfile(),
     watchGetArticleByTagsSaga(),
     watchReportArticleSaga(),
+    watchBookmarks(),
   ]);
 }

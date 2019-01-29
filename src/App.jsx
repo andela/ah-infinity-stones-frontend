@@ -14,6 +14,7 @@ import ArticleByTags from './components/Articles/ArticleByTags';
 import AllArticlesView from './views/articles/allArticles';
 import Footer from './views/Footer';
 import Profile from './views/Profile';
+import Bookmarks from './views/Bookmarks';
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class App extends Component {
@@ -21,19 +22,20 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div className="App">
+          <div className='App'>
             <Navbar />
-            <Route exact path="/" component={AllArticlesView} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route path="/user/ResetPassword" component={ResetPassword} />
-            <Route path="/user/Resetlink" component={ResetLink} />
-            <Route exact path="/articles" component={ArticleCreationForm} />
-            <Route exact path="/articles/:art_slug" component={Article} />
-            <Route path="/tags/:tag" component={ArticleByTags} />
-            <Route exact path="/articles/:art_slug/edit" component={ArticleUpdateForm} />
-            <Route path="/profile" component={Profile} />
-           <Footer />
+            <Route exact path='/' component={AllArticlesView} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
+            <Route path='/user/ResetPassword' component={ResetPassword} />
+            <Route path='/user/Resetlink' component={ResetLink} />
+            <Route exact path='/articles' component={ArticleCreationForm} />
+            <Route exact path='/articles/:art_slug' component={Article} />
+            <Route path='/tags/:tag' component={ArticleByTags} />
+            <Route exact path='/articles/:art_slug/edit' component={ArticleUpdateForm} />
+            <Route path='/profile' component={Profile} />
+            <Route path='/bookmarks' component={Bookmarks} />
+            <Footer />
           </div>
         </BrowserRouter>
       </Provider>

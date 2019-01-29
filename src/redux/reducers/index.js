@@ -8,6 +8,7 @@ import articleReducer from './articleReducer';
 import likeReducer from './likeReducer';
 import profileReducer from './profileReducer';
 import articleTagsReducer from './articleTagsReducer';
+import bookmarksReducer from './bookmarksReducer';
 
 export default combineReducers({
   socialLoginReducer,
@@ -18,4 +19,5 @@ export default combineReducers({
   likeReducer,
   profileReducer,
   articleTagsReducer,
+  bookmarksReducer,
 });

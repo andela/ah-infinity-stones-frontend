@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Loader = () => (
-  <div className="loader">
-  </div>
+  <div className='loader' />
+
 );
 
 export default Loader;

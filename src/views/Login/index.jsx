@@ -85,7 +85,7 @@ class Login extends Component {
     } = this.props;
     const { submitEnabled, email, password } = this.state;
     return (
-      <div className="container" id="loginContainer">
+      <div className='container' id='loginContainer'>
         {error !== null ? errorMessage(error) : null}
         {success !== null ? Login.handleSuccess(success) : null}
         {loading === true ? <Loader /> : null}
