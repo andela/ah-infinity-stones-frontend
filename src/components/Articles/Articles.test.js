@@ -37,14 +37,6 @@ describe('All Articles Component', () => {
     const cardColumns = reduxArticles.find('div.card-columns');
     expect(cardColumns.exists()).toEqual(true);
   });
-  it('Check if class card exist', () => {
-    const card = reduxArticles.find('div.card');
-    expect(card.exists()).toEqual(true);
-  });
-  it('Check if class card starts with "no articles to show"', () => {
-    const text = reduxArticles.find('div.card').text();
-    expect(text).toEqual('Loading...');
-  });
   it('articles component should match snapshot', () => {
     expect(articlesContainer.getElements()).toMatchSnapshot();
   });

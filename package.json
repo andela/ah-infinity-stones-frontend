@@ -17,6 +17,7 @@
     "react-draft-wysiwyg": "^1.12.20",
     "react-google-login": "^5.0.0",
     "react-html-parser": "^2.0.2",
+    "react-paginate": "^6.2.1",
     "react-prefixer": "^2.0.1",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
