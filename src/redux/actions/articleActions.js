@@ -21,6 +21,9 @@ import {
   GET_BY_TAGS_SUCCESS,
   GET_BY_TAGS_ERROR,
   REPORT_ARTICLE,
+  SEARCH_ARTICLES_REQUEST,
+  SEARCH_ARTICLES_SUCCESS,
+  SEARCH_ARTICLES_FAILURE,
 } from './actionTypes';
 
 export const createArticleAction = article => ({
@@ -101,4 +104,19 @@ export const getByTagsError = error => ({
 export const reportArticleAction = reportMessage => ({
   type: REPORT_ARTICLE,
   payload: reportMessage,
+});
+
+export const searchArticlesRequest = payload => ({
+  type: SEARCH_ARTICLES_REQUEST,
+  payload,
+});
+
+export const searchArticlesSuccessAction = payload => ({
+  type: SEARCH_ARTICLES_SUCCESS,
+  payload,
+});
+
+export const searchArticlesFailureAction = payload => ({
+  type: SEARCH_ARTICLES_FAILURE,
+  payload,
 });

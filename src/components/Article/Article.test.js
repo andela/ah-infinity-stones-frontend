@@ -57,7 +57,7 @@ describe('single article mount', () => {
     title: 'smileys',
     description: 'emoji are working',
     body: '<p>there…y are thats awespome</p>',
-    read_time: 1
+    read_time: 1,
   };
   it('Article renders successfully', () => {
     // let article_div = articleContainer.find('div')
@@ -97,7 +97,7 @@ describe('Like functionality', () => {
     expect(
       likeReducer(undefined, {
         type: types.SEND_LIKE,
-      })
+      }),
     ).toEqual({
       success: null,
       error: null,
@@ -111,6 +111,7 @@ describe('Like functionality', () => {
   it('Like endpoint needs auth', async () => {
     const slug = 'like-this';
     const likeData = { likeData: { like: 'False' } };
+    jest.setTimeout(50000);
     const data = await like(likeData, slug);
     expect(data.detail).toEqual('Your token is invalid. ');
   });

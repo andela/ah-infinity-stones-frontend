@@ -101,3 +101,20 @@ export async function reportArticle(report) {
   }
   throw new Error(response);
 }
+
+export async function searchArticle(payload) {
+  const response = await fetch(
+    `${baseURL}articles/search/?author=${payload.author}&title=${payload.title}&tag=${
+      payload.tag
+    }&q=${payload.q}`,
+    {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-type': 'application/json',
+      },
+    },
+  );
+  const data = await response.json();
+  return data;
+}

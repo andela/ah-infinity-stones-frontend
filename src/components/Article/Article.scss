@@ -1,33 +1,57 @@
-#article-comments input{
-    width:100%;
+#article-comments input {
+    width: 100%;
 }
+
 #editArticleButton {
-  background-color: #86C232;
-  border-style: none;
-  font-size: 1.5em;
+    background-color: #86C232;
+    border-style: none;
+    font-size: 1.5em;
 }
-.pull-right{
-    padding-left: 5px!important;
+
+.pull-right {
+    padding-left: 5px !important;
 }
+
 .react-button {
-    cursor: pointer!important;
-    background-color:#838688!important;
+    cursor: pointer !important;
+    background-color: #838688 !important;
     border: none;
 }
+
 .react-button i {
-    color: white!important;
+    color: white !important;
 }
-.react-button i:hover{
-    color: #86C232!important;
+
+.react-button i:hover {
+    color: #86C232 !important;
 }
+
 .true {
-    background-color:#86C232!important;
+    background-color: #86C232 !important;
 }
-#msg{
+
+#msg {
     color: #86C232;
     display: block;
     margin-top: 25px;
-    font-size: 1.2em;
+    font-size: 1em;
+}
+
+.art-fun {
+    padding-right: 30px;
+    color: #86C232;
+}
+
+.article-author {
+    padding-right: 100px;
+}
+
+.art-fun {
+    padding-right: 30px;
+    color: #86C232;
+}
+.article-author {
+    padding-right: 100px;
 }
 
 .art-fun {

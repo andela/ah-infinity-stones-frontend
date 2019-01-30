@@ -13,6 +13,7 @@ import {
   watchUpdateArticleSaga,
   watchRateArticleSaga,
   watchReportArticleSaga,
+  watchSearchArticleSaga,
 } from './articleSaga';
 import watchProfile from './profileSagas';
 import { watchLike } from './likeSagas';
@@ -38,5 +39,6 @@ export default function* rootSaga() {
     watchGetArticleByTagsSaga(),
     watchReportArticleSaga(),
     watchBookmarks(),
+    watchSearchArticleSaga(),
   ]);
 }

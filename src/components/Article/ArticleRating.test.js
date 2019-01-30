@@ -51,16 +51,16 @@ describe('Reducers', () => {
   });
 
   it('should return the initial state', () => {
-    expect(reducer(undefined, {})).toEqual(
-      {
-        article: {},
-        articles: [],
-        error: {},
-        specificArticle: {},
-        rated: false,
-        rate: 0,
-      },
-    );
+    expect(reducer(undefined, {})).toEqual({
+      article: {},
+      articles: [],
+      error: {},
+      header: 'ALL ARTICLES',
+      specificArticle: {},
+      rated: false,
+      searchErrorMsg: '',
+      rate: 0,
+    });
   });
 
   it('can handle RATE_ARTICLE', () => {
@@ -69,16 +69,16 @@ describe('Reducers', () => {
         type: types.RATE_ARTICLE,
         payload,
       }),
-    ).toEqual(
-      {
-        article: {},
-        articles: [],
-        error: {},
-        specificArticle: {},
-        rated: false,
-        rate: 3,
-      },
-    );
+    ).toEqual({
+      article: {},
+      articles: [],
+      error: {},
+      header: 'ALL ARTICLES',
+      specificArticle: {},
+      rated: false,
+      searchErrorMsg: '',
+      rate: 3,
+    });
   });
 
   it('should handle RATE_ARTICLE_SUCCESS', () => {
@@ -87,19 +87,19 @@ describe('Reducers', () => {
         type: types.RATE_ARTICLE_SUCCESS,
         payload,
       }),
-    ).toEqual(
-      {
-        article: {},
-        articles: [],
-        error: {
-          art_slug: 'james-is-back-from-china-ijk0rf0e0r09r0',
-          rating: 3,
-        },
-        specificArticle: {},
-        rate: 3,
-        rated: true,
+    ).toEqual({
+      article: {},
+      articles: [],
+      error: {
+        art_slug: 'james-is-back-from-china-ijk0rf0e0r09r0',
+        rating: 3,
       },
-    );
+      header: 'ALL ARTICLES',
+      specificArticle: {},
+      searchErrorMsg: '',
+      rate: 3,
+      rated: true,
+    });
   });
 
   it('should handle RATE_ARTICLE_FAILURE', () => {
@@ -108,19 +108,19 @@ describe('Reducers', () => {
         type: types.RATE_ARTICLE_FAILURE,
         payload,
       }),
-    ).toEqual(
-      {
-        article: {},
-        articles: [],
-        error: {
-          art_slug: 'james-is-back-from-china-ijk0rf0e0r09r0',
-          rating: 3,
-        },
-        specificArticle: {},
-        rate: 3,
-        rated: false,
+    ).toEqual({
+      article: {},
+      articles: [],
+      error: {
+        art_slug: 'james-is-back-from-china-ijk0rf0e0r09r0',
+        rating: 3,
       },
-    );
+      header: 'ALL ARTICLES',
+      specificArticle: {},
+      rate: 3,
+      searchErrorMsg: '',
+      rated: false,
+    });
   });
 });
 

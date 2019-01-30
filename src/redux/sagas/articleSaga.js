@@ -4,12 +4,17 @@
 
 import { put, takeLatest, call } from 'redux-saga/effects';
 import {
-  createArticleSuccessAction, createArticleFailureAction,
-  getAllArticlesSuccessAction, getAllArticlesFailureAction,
-  getOneArticleSuccessAction, getOneArticleFailureAction,
-  rateArticleSuccessAction, rateArticleFailureAction,
-}
-  from '../actions/articleActions';
+  createArticleSuccessAction,
+  createArticleFailureAction,
+  getAllArticlesSuccessAction,
+  getAllArticlesFailureAction,
+  getOneArticleSuccessAction,
+  getOneArticleFailureAction,
+  rateArticleSuccessAction,
+  rateArticleFailureAction,
+  searchArticlesSuccessAction,
+  searchArticlesFailureAction,
+} from '../actions/articleActions';
 import {
   CREATE_ARTICLE,
   GET_ALL_ARTICLES_REQUEST,
@@ -18,11 +23,20 @@ import {
   DELETE_ARTICLE,
   RATE_ARTICLE,
   REPORT_ARTICLE,
+  SEARCH_ARTICLES_REQUEST,
 } from '../actions/actionTypes';
 import {
-  createArticle, getAllArticles, getOneArticle, updateArticle, deleteArticle, rateArticle,
+  createArticle,
+  getAllArticles,
+  getOneArticle,
+  updateArticle,
+  deleteArticle,
+  rateArticle,
   reportArticle,
+  searchArticle,
 } from '../../services/articlePayload';
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
 function* createArticleSaga(action) {
   try {
@@ -33,7 +47,7 @@ function* createArticleSaga(action) {
       yield put(createArticleFailureAction(response));
     }
   } catch (e) {
-    return (e.response);
+    return e.response;
   }
 }
 export function* watchCreateArticleSaga() {
@@ -86,7 +100,7 @@ function* updateArticleSaga(action) {
     }
     return response.error;
   } catch (e) {
-    return (e);
+    return e;
   }
 }
 /**
@@ -95,7 +109,6 @@ function* updateArticleSaga(action) {
 export function* watchUpdateArticleSaga() {
   yield takeLatest(UPDATE_ARTICLE, updateArticleSaga);
 }
-
 
 function* deleteArticleSaga(action) {
   try {
@@ -136,7 +149,7 @@ function* reportArticleSaga(action) {
     }
     return response.error;
   } catch (e) {
-    return (e.response);
+    return e.response;
   }
 }
 
@@ -145,4 +158,22 @@ function* reportArticleSaga(action) {
  */
 export function* watchReportArticleSaga() {
   yield takeLatest(REPORT_ARTICLE, reportArticleSaga);
+}
+function* searchArticleSaga(action) {
+  try {
+    const response = yield call(searchArticle, action.payload);
+    const articles = yield call(getAllArticles);
+    if (response['Your search results']) {
+      yield put(searchArticlesSuccessAction(response));
+    } else {
+      yield put(searchArticlesFailureAction(response));
+      yield delay(5000);
+      yield put(getAllArticlesSuccessAction(articles[1]));
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}
+export function* watchSearchArticleSaga() {
+  yield takeLatest(SEARCH_ARTICLES_REQUEST, searchArticleSaga);
 }
