@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from '../logo.png';
+import Search from './Search';
 
 class Navbar extends Component {
   logout = () => {
@@ -26,14 +27,7 @@ class Navbar extends Component {
               <NavLink className='nav-link dropdown-toggle' to='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Categories</NavLink>
             </li>
           </ul>
-          <form className='navbar-form navbar-right' id='nav-search-form' action=''>
-            <div className='input-group'>
-              <input type='text' className='form-control' placeholder='Search' />
-              <div className='input-group-btn'>
-                <button className='btn btn-success' id='home-search-btn' type='button'><span><i className='fas fa-search' /></span></button>
-              </div>
-            </div>
-          </form>
+          <Search />
           <ul className='nav navbar-nav navbar-right'>
             {isLoggedIn
               && !loginPath

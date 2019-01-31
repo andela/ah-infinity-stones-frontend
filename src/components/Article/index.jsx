@@ -6,12 +6,15 @@ import ReactHtmlParser from 'react-html-parser';
 import StarRatings from 'react-star-ratings';
 import PropTypes from 'prop-types';
 import './Article.scss';
-import { rateArticleAction, getOneArticleRequestAction, deleteArticleAction, reportArticleAction } from '../../redux/actions/articleActions';
+import { rateArticleAction,
+  getOneArticleRequestAction,
+  deleteArticleAction,
+  reportArticleAction,
+} from '../../redux/actions/articleActions';
 import { sendLike } from '../../redux/actions/likeActions';
 import jwtDecode from '../../../node_modules/jwt-decode';
 import SocialShare from '../ArticleShare/shareArticle';
 import ReportArticle from './ReportArticle';
-
 
 class Article extends Component {
   constructor(props) {

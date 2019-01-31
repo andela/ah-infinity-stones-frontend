@@ -56,13 +56,13 @@ const SignupForm = ({
       <span id='cpassword'>{messages.cpasswordError}</span>
     </div>
     <div className='form-group'>
-      <button type='submit' className='btn btn-primary login-button' disabled={handleSuccess}>Sign Up</button>
+      <button type='submit' className='btn btn-primary login-button' disabled={handleSuccess}>
+        Sign Up
+      </button>
     </div>
     <div className='form-group'>
       <span id='serverMsgs'>
-        {
-                        error.email || error.username ? 'Email or username already in use' : ''
-                        }
+        {error.email || error.username ? 'Email or username already in use' : ''}
       </span>
     </div>
   </form>
