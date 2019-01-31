@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bookmark Component Should render properly 1`] = `
+<div>
+  <button
+    className="fav-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <i
+      className="fas fa-bookmark"
+    />
+     
+    <strong>
+      Bookmark
+    </strong>
+  </button>
+</div>
+`;
