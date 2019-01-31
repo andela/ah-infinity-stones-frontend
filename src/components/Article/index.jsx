@@ -86,17 +86,7 @@ class Article extends Component {
       : sendLike({ like: 'False' }, match.params.art_slug);
   };
 
-  handleDeleteArticle(event) {
-    event.preventDefault();
-    this.props.deleteArticleAction(this.props.article.art_slug);
-    this.props.history.push('/');
-  }
-
-  handleEditArticle() {
-    this.props.history.push(`${this.props.article.art_slug}/edit`);
-  }
-  
-// rating click handler
+  // rating click handler
  handleRatingClick = (event) => {
    this.setState({
      rating: event,
@@ -116,6 +106,16 @@ class Article extends Component {
    div.style.opacity = '0';
  }
 
+ handleEditArticle() {
+   this.props.history.push(`${this.props.article.art_slug}/edit`);
+ }
+
+ handleDeleteArticle(event) {
+   event.preventDefault();
+   this.props.deleteArticleAction(this.props.article.art_slug);
+   this.props.history.push('/');
+ }
+
  render() {
    const {
      article, likeCount, dislikeCount, liked, disliked,
@@ -131,20 +131,20 @@ class Article extends Component {
          <div className='col-2'>
            <div className='article-data'>
              <div className='row'>
-                <span className='article-rating'>
+               <span className='article-rating'>
                   Average Rating
-                  <div>
-                    <StarRatings
-                      rating={rate}
-                      starRatedColor='#86C232'
-                      starDimension='20px'
-                      numberOfStars={5}
-                      disabled
-                      name='rating'
-                    />
-                  </div>
-                </span>
-              </div>
+                 <div>
+                   <StarRatings
+                     rating={rate}
+                     starRatedColor='#86C232'
+                     starDimension='20px'
+                     numberOfStars={5}
+                     disabled
+                     name='rating'
+                   />
+                 </div>
+               </span>
+             </div>
            </div>
          </div>
          <div className='col-8'>
@@ -152,14 +152,14 @@ class Article extends Component {
            <div className='article-stats'>
              <span className='article-author'>{article.author.username}</span>
              <span className='article-read_time'>
-                <i className='mdi mdi-calendar-clock mdi-24px' />
+               <i className='mdi mdi-calendar-clock mdi-24px' />
               &nbsp;
-                {
+               {
                   article.read_time
                 }
               &nbsp;
                 Minute Read
-              </span>
+             </span>
            </div>
            <div className='article-body'>{ReactHtmlParser(this.props.article.body)}</div>
            <div className='article-tags'>
@@ -176,96 +176,86 @@ class Article extends Component {
            </div>
            <div className='pull-right'>
              <span className='caption code'>
-                {dislikeCount === null ? article.dislikes_count : dislikeCount}
+               {dislikeCount === null ? article.dislikes_count : dislikeCount}
                 &nbsp;
-              </span>
+             </span>
              <button
-                type='button'
-                id='dislike'
-                className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
-                  disliked === null
-                    ? article.disliking && isAuth === 'true'
-                    : disliked && isAuth === 'true'
-                } `}
-                onClick={this.handleDislike}
-              >
+               type='button'
+               id='dislike'
+               className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
+                 disliked === null
+                   ? article.disliking && isAuth === 'true'
+                   : disliked && isAuth === 'true'
+               } `}
+               onClick={this.handleDislike}
+             >
                 &nbsp;
-                <i className='fa fa-thumbs-down mdi-24px' />
+               <i className='fa fa-thumbs-down mdi-24px' />
                 &nbsp;
-              </button>
+             </button>
            </div>
            <div className='pull-right'>
              <span className='caption code'>
-                {likeCount === null ? article.likes_count : likeCount}
+               {likeCount === null ? article.likes_count : likeCount}
                 &nbsp;
-              </span>
+             </span>
              <button
-                type='button'
-                id='like'
-                className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
-                  liked === null
-                    ? article.liking && isAuth === 'true'
-                    : liked && isAuth === 'true'
-                } `}
-                onClick={this.handleLike}
-              >
-                {' '}
+               type='button'
+               id='like'
+               className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
+                 liked === null
+                   ? article.liking && isAuth === 'true'
+                   : liked && isAuth === 'true'
+               } `}
+               onClick={this.handleLike}
+             >
+               {' '}
                 &nbsp;
-                <i className='fa fa-thumbs-up mdi-24px' />
+               <i className='fa fa-thumbs-up mdi-24px' />
                 &nbsp;
-              </button>
+             </button>
            </div>
            {' '}
            <ReportArticle props={this.props} />
            <div className='row reader-only' ref={this.reader_only}>
              <div className='col article-report'>
-                <button
-                  type='button'
-                  id='reportArticleButton'
-                  className='btn btn-danger'
-                  data-toggle="modal"
-                  data-target="#reportArticleModal"
-                >
-                  <i className='mdi mdi-alert' />
-                  REPORT
-                </button>
-              </div>
+               <button
+                 type='button'
+                 id='reportArticleButton'
+                 className='btn btn-danger'
+                 onClick={this.handleEditArticle}
+               >
+                 <i className='mdi mdi-alert' />
+                REPORT
+               </button>
+             </div>
              <div className='col article-like-dislike'>
-                <i className='mdi mdi-thumb-up-outline' />
-                <i className='mdi mdi-thumb-down-outline' />
-              </div>
+               <i className='mdi mdi-thumb-up-outline' />
+               <i className='mdi mdi-thumb-down-outline' />
+             </div>
              <div className='col' id='myRating'>
-                <b>Rate This Article</b>
-                <br />
-                <StarRatings
-                  rating={this.state.rating}
-                  starRatedColor='#86C232'
-                  starDimension='20px'
-                  starHoverColor='#86C232'
-                  changeRating={this.handleRatingClick}
-                  numberOfStars={5}
-                  disabled={this.state.buttonStatus}
-                  name='rating'
-                />
-                <br />
-                <span id='msg' />
-              </div>
+               <b>Rate This Article</b>
+               <br />
+               <StarRatings
+                 rating={this.state.rating}
+                 starRatedColor='#86C232'
+                 starDimension='20px'
+                 starHoverColor='#86C232'
+                 changeRating={this.handleRatingClick}
+                 numberOfStars={5}
+                 disabled={this.state.buttonStatus}
+                 name='rating'
+               />
+               <br />
+               <span id='msg' />
+             </div>
            </div>
            <div className='col article-social_media_urls'>
              <br />
-             {/* <Link to={article.share_urls.twitter}>
-                <i className="mdi mdi-twitter" />
-              </Link>
-              <Link to={article.share_urls.facebook}>
-                <i className="mdi mdi-facebook" />
-              </Link>
-              <Link to={article.share_urls.email}>
-                <i className="mdi mdi-gmail" />
-              </Link> */}
              <SocialShare
-                title={this.props.article.title}
-                slug={this.props.article.art_slug}
-              />
+               title={this.props.article.title}
+               slug={this.props.article.art_slug}
+             />
              <br />
            </div>
            <div id='article-comments'>
@@ -277,23 +267,23 @@ class Article extends Component {
          <div className='col-2'>
            <div className='author-only' ref={this.author_only}>
              <button
-                type='button'
-                id='editArticleButton'
-                className='btn btn-primary'
-                onClick={this.handleEditArticle}
-              >
-                <i className='mdi mdi-pencil' />
+               type='button'
+               id='editArticleButton'
+               className='btn btn-primary'
+               onClick={this.handleEditArticle}
+             >
+               <i className='mdi mdi-pencil' />
                 EDIT
-              </button>
+             </button>
              <button
-                type='button'
-                id='deleteArticleButton'
-                className='btn btn-danger'
-                onClick={this.handleDeleteArticle}
-              >
-                <i className='mdi mdi-delete' />
+               type='button'
+               id='deleteArticleButton'
+               className='btn btn-danger'
+               onClick={this.handleDeleteArticle}
+             >
+               <i className='mdi mdi-delete' />
                 DELETE
-              </button>
+             </button>
            </div>
          </div>
        </div>

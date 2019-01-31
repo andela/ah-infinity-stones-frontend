@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { getProfile } from '../../../redux/actions/profileActions';
 
 let Button = ({ getProfile }) => (
@@ -14,6 +15,16 @@ let Button = ({ getProfile }) => (
       </span>
       {' '}
       My Articles
+    </button>
+    {' '}
+    <button type='button' className='button'>
+      <Link to='/bookmarks'>
+        <span className='theme'>
+          <i className='mdi mdi-bookmark mdi-24px' />
+        </span>
+        {' '}
+        Bookmarks
+      </Link>
     </button>
     {' '}
     <button type='button' onClick={getProfile} className='button button-theme'>

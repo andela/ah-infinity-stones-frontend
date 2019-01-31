@@ -27,6 +27,9 @@ module.exports = {
         ecmaVersion: 6,
         sourceType: 'module',
         allowImportExportEverywhere: true,
+        ecmaFeatures: {
+            modules: true
+        }
     },
     "globals": {
         "shallow": true,
