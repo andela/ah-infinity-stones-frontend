@@ -82,3 +82,22 @@ export async function rateArticle(payload) {
   const data = await response.json();
   return data;
 }
+export async function reportArticle(report) {
+  const input = {
+    report_msg: report.report_msg,
+  };
+  const response = await fetch(`${baseURL}articles/${report.artSlug}/report`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-type': 'application/json',
+      Authorization: `${localStorage.getItem('Token')}`,
+    },
+
+    body: JSON.stringify(input),
+  });
+  if (response.status === 201) {
+    return response;
+  }
+  throw new Error(response);
+}

@@ -6,10 +6,11 @@ import ReactHtmlParser from 'react-html-parser';
 import StarRatings from 'react-star-ratings';
 import PropTypes from 'prop-types';
 import './Article.scss';
-import { rateArticleAction, getOneArticleRequestAction, deleteArticleAction } from '../../redux/actions/articleActions';
+import { rateArticleAction, getOneArticleRequestAction, deleteArticleAction, reportArticleAction } from '../../redux/actions/articleActions';
 import { sendLike } from '../../redux/actions/likeActions';
 import jwtDecode from '../../../node_modules/jwt-decode';
 import SocialShare from '../ArticleShare/shareArticle';
+import ReportArticle from './ReportArticle';
 
 
 class Article extends Component {
@@ -215,13 +216,15 @@ class Article extends Component {
               </button>
            </div>
            {' '}
+           <ReportArticle props={this.props} />
            <div className='row reader-only' ref={this.reader_only}>
              <div className='col article-report'>
                 <button
                   type='button'
                   id='reportArticleButton'
                   className='btn btn-danger'
-                  onClick={this.handleEditArticle}
+                  data-toggle="modal"
+                  data-target="#reportArticleModal"
                 >
                   <i className='mdi mdi-alert' />
                   REPORT
@@ -349,6 +352,7 @@ const actionCreators = {
   deleteArticleAction,
   sendLike,
   rateArticleAction,
+  reportArticleAction,
 };
 
 export default connect(
