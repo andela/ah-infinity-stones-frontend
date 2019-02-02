@@ -70,15 +70,14 @@ class ProfileForm extends Component {
     return (
       <section>
         <div className='row'>
-          <div className='col-sm-6'>&nbsp;</div>
-          <div className='col-sm-6'>
-            <h1>
-              <i className='fa fa-pencil' />
-              {' '}
-              Edit Profile
-            </h1>
+          <div className='col-sm-12'>
+
             <p>
-              <strong>Please edit your profile and save changes.</strong>
+              <strong>
+                <i className='fa fa-pencil' />
+                {' '}
+Please edit your profile and save changes.
+              </strong>
             </p>
             <form onSubmit={this.onSubmit}>
               <div className='m-profile'>
@@ -148,11 +147,11 @@ class ProfileForm extends Component {
               <button
                 type='submit'
                 onClick={this.raiseAlert.bind(this)}
-                className='button button-theme pull-right'
+                className='button button-theme'
               >
                 <i className='mdi mdi-floppy mdi-24px' />
                 {' '}
-                Update
+Update
               </button>
             </form>
           </div>
@@ -172,12 +171,12 @@ ProfileForm.propTypes = {
   bio: PropTypes.string.isRequired,
 };
 
-const mapDispatchToProps = state => ({
+const mapStateToProps = state => ({
   user: state.profileReducer.user,
   item: state.profileReducer.item,
 });
 
 export default connect(
-  mapDispatchToProps,
+  mapStateToProps,
   { updateProfile, getProfile },
 )(ProfileForm);

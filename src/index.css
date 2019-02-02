@@ -118,7 +118,7 @@ ul {
   height: 120px;
   background-color: #222629 !important;
   color: rgb(219, 216, 216);
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
 }
 

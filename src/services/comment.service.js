@@ -17,6 +17,7 @@ if (token === null) {
 }
 
 export const { username } = decodedToken;
+export const slug = localStorage.getItem('slug');
 
 export function Surfer() {
   if (localStorage.getItem('Token') === null) {
@@ -26,9 +27,7 @@ export function Surfer() {
   return `Comment as ${username}..`;
 }
 
-export const firstname = localStorage.getItem('firstname');
-export const lastname = localStorage.getItem('lastname');
-export const birthday = localStorage.getItem('birthday');
-export const followers = localStorage.getItem('followers');
-export const bio = localStorage.getItem('bio');
-export const image = localStorage.getItem('image');
+
+export function niceTime(t = '2019-01-31T18:24:43.727276+03:00') {
+  return new Date(t).toUTCString();
+}

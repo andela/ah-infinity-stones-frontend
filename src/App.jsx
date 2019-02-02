@@ -15,6 +15,7 @@ import AllArticlesView from './views/articles/allArticles';
 import Footer from './views/Footer';
 import Profile from './views/Profile';
 import Bookmarks from './views/Bookmarks';
+import CommentPage from './views/Comment';
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class App extends Component {
@@ -35,6 +36,7 @@ export default class App extends Component {
             <Route exact path='/articles/:art_slug/edit' component={ArticleUpdateForm} />
             <Route path='/profile' component={Profile} />
             <Route path='/bookmarks' component={Bookmarks} />
+            <Route exact path="/articles/:art_slug/comments" component={CommentPage} />
             <Footer />
           </div>
         </BrowserRouter>
