@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from '../logo.png';
@@ -29,15 +30,26 @@ class Navbar extends Component {
           </ul>
           <Search />
           <ul className='nav navbar-nav navbar-right'>
-            {isLoggedIn
+            {isLoggedIn === 'true'
               && !loginPath
-              && <li><NavLink to='' onClick={this.logout}>Logout</NavLink></li>
+              && (
+                <li className='nav-item dropdown'>
+                  <NavLink className='nav-link dropdown-toggle' to='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                  Account
+                  </NavLink>
+                  <div className='dropdown-menu' aria-labelledby='navbarDropdown' id='drop-menu'>
+                    <Link className='dropdown-item' to='/profile'>Profile</Link>
+                    <div className='dropdown-divider' />
+                    <Link className='dropdown-item' to='' onClick={this.logout}>Logout</Link>
+                  </div>
+                </li>
+              )
             }
-            {!isLoggedIn
-              && !loginPath && <li><NavLink to='/login'>Login</NavLink></li>
+            { isLoggedIn !== 'true'
+              && !loginPath && <li><NavLink to='/login' className='guest-link'>Login</NavLink></li>
             }
-            {!isLoggedIn
-              && !signupPath && <li><NavLink to='/signup'>Sign Up</NavLink></li>
+            {isLoggedIn !== 'true'
+              && !signupPath && <li><NavLink to='/signup' className='guest-link'>Sign Up</NavLink></li>
             }
           </ul>
         </div>

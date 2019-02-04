@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Hind+Siliguri');
+
+.card {
+    height: 170px;
+}
+
+.page-header {
+    padding: 20px;
+}
+
+.article-preview {
+    background: #F7FBF1 !important;
+    font-family: 'Hind Siliguri', sans-serif;
+
+    .card-header,
+    .card-footer {
+        background: transparent;
+    }
+
+    .card-header {
+        border-bottom: none;
+        padding: 10px;
+
+        h5 {
+            font-weight: 600;
+            font-size: 18px;
+            text-transform: capitalize;
+            color: rgb(58, 57, 57);
+        }
+    }
+
+    .card-body {
+        padding: 4px 18px;
+        max-height: 50px;
+        overflow: scroll;
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    .card-footer {
+        border-top: none;
+    }
+
+}

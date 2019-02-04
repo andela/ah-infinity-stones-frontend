@@ -192,3 +192,12 @@ footer a {
 #nav-search-form .dropdown-menu .input-group-text {
   width: 100% !important;
 }
+#drop-menu a{
+  color: #222629 !important;
+}
+nav{
+  padding-right: 3% !important;
+}
+.guest-link {
+  padding: 5px;
+}
