@@ -5,6 +5,7 @@ import { PropTypes } from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { getAllArticlesRequestAction } from '../../redux/actions/articleActions';
 import { errorMessage } from '../../helpers/messages';
+import './Articles.scss';
 
 class GetAllArticles extends Component {
   constructor(props) {
@@ -80,11 +81,25 @@ class GetAllArticles extends Component {
     this.articlesList = articles && articles.length ? (
       articles.map((article) => {
         return (
-          <div className='card bg-light text-dark' classstyle='width: 18rem;' key={article.art_slug}>
-            <div className='card-header'><span className='card-title'>{article.title}</span></div>
-            <div className='card-body'><p className='card-text'>{article.description}</p></div>
-            <div className='card-footer text-center'>
-              <Link to={`/articles/${article.art_slug}`} className='btn btn-primary' id='read-more'>Read More...</Link>
+          <div
+            className='card bg-light text-dark article-preview'
+            classstyle='width: 18rem;'
+            key={article.art_slug}
+          >
+            <div className='card-header'>
+              <h5 className='card-title'>{article.title}</h5>
+            </div>
+            <div className='card-body'>
+              <p
+                className='card-text'
+              >
+                {article.description}
+              </p>
+            </div>
+            <div className='card-footer text-right'>
+              <Link to={`/articles/${article.art_slug}`} className='btn btn-sm btn-primary' id='read-more'>
+                Read More...
+              </Link>
             </div>
           </div>
         );
@@ -92,7 +107,7 @@ class GetAllArticles extends Component {
     ) : (<div className='card'>Loading...</div>);
     return (
       <div>
-        <div className='page-header text-center'><h3>{ this.props.header }</h3></div>     
+        <div className='page-header text-center'><h3>{ this.props.header }</h3></div>
         <div className='container' id='allArticles'><div className='card-columns'>{ this.state.selectedArticles }</div></div>
         <table id='allArticlesPagination' className='table'>
           <tbody>
