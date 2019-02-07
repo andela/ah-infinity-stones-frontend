@@ -11,7 +11,6 @@ import * as types from '../../redux/actions/actionTypes';
 import { loginSaga } from '../../redux/sagas/loginSaga';
 import loginFunc from '../../services/login';
 
-
 describe('Login Component', () => {
   let loginContainer;
   let reduxLogin;
@@ -59,16 +58,62 @@ describe('Login Component', () => {
 });
 
 describe('Login Reducer', () => {
+  const data = {
+    user: {
+      email: 'someone@email.com',
+      password: 'Someone12@',
+    },
+  };
   it('has an initial state', () => {
     expect(loginReducer(undefined, { type: 'unexpected' })).toEqual({
-      error: null, loading: false, success: null, isLoggedIn: false,
+      error: null,
+      loading: false,
+      success: null,
+      isLoggedIn: false,
     });
   });
   it('it can send a login request and update state', () => {
-    expect(loginReducer(undefined, {
-      type: types.REQUEST_LOGIN,
-    })).toEqual({
-      error: null, loading: true, success: null, isLoggedIn: false,
+    expect(
+      loginReducer(undefined, {
+        type: types.REQUEST_LOGIN,
+        data,
+      }),
+    ).toEqual({
+      error: null,
+      loading: true,
+      success: null,
+      isLoggedIn: false,
+    });
+  });
+  it('can login user successfully', () => {
+    expect(
+      loginReducer(undefined, {
+        type: types.RECEIVE_LOGIN,
+        data,
+      }),
+    ).toEqual({
+      error: null,
+      loading: false,
+      success: {
+        user: {
+          email: 'someone@email.com',
+          password: 'Someone12@',
+        },
+      },
+      isLoggedIn: true,
+    });
+  });
+  it('can capture login error', () => {
+    expect(
+      loginReducer(undefined, {
+        type: types.LOGIN_ERROR,
+        data,
+      }),
+    ).toEqual({
+      error: 'Invalid Email or Password',
+      loading: false,
+      success: null,
+      isLoggedIn: false,
     });
   });
 });

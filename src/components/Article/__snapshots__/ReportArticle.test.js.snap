@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Report Article component article report component should match snapshot 1`] = `
+<div
+  aria-hidden="true"
+  aria-labelledby="reportArticleModalTitle"
+  className="modal fade"
+  id="reportArticleModal"
+  role="dialog"
+  tabIndex="-1"
+>
+  <div
+    className="modal-dialog modal-dialog-centered"
+    role="document"
+  >
+    <div
+      className="modal-content"
+    >
+      <div
+        className="modal-header"
+      >
+        <h5
+          className="modal-title"
+        >
+          Report Article
+        </h5>
+        <button
+          aria-label="Close"
+          className="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            ×
+          </span>
+        </button>
+      </div>
+      <div
+        className="modal-body"
+      >
+        <form
+          id="reportMessageForm"
+        >
+          <input
+            name="reportMessage"
+            onClick={[Function]}
+            type="radio"
+            value="Spam"
+          />
+          Spam
+          <br />
+          <input
+            name="reportMessage"
+            onClick={[Function]}
+            type="radio"
+            value="Harrassment"
+          />
+          Harrassment
+          <br />
+          <input
+            name="reportMessage"
+            onClick={[Function]}
+            type="radio"
+            value="Rules Violation"
+          />
+          Rules Violation
+        </form>
+      </div>
+      <div
+        className="modal-footer"
+      >
+        <button
+          className="btn btn-secondary"
+          data-dismiss="modal"
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          className="btn btn-danger"
+          data-dismiss="modal"
+          disabled={true}
+          id="modalSubmitReport"
+          onClick={[Function]}
+          type="button"
+        >
+          Report
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

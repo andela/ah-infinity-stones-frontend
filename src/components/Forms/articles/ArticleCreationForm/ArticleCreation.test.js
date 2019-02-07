@@ -13,15 +13,16 @@ import allReducers from '../../../../redux/reducers/index';
 import store from '../../../../redux/store';
 import ArticleCreationForm from './index';
 import * as actions from '../../../../redux/actions/articleActions';
-import { CREATE_ARTICLE, CREATE_ARTICLE_SUCCESS, CREATE_ARTICLE_FAILURE } from '../../../../redux/actions/actionTypes';
-
+import {
+  CREATE_ARTICLE,
+  CREATE_ARTICLE_SUCCESS,
+  CREATE_ARTICLE_FAILURE,
+} from '../../../../redux/actions/actionTypes';
 
 describe('async actions', () => {
   beforeEach(() => {
     const middleware = createSagaMiddleware();
-    const store = createStore(
-      allReducers, applyMiddleware(middleware),
-    );
+    const store = createStore(allReducers, applyMiddleware(middleware));
     const article = '{body: "You have to pray and play", description: "Ever wonder how?", title: "winning the jackpot", tags: "sportpesa"}';
     const expectedAction = {
       type: CREATE_ARTICLE,
@@ -41,7 +42,8 @@ describe('async actions', () => {
       headers: {
         Accept: 'application/json',
         'Content-type': 'application/json',
-        Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJvbm55bWFnZWhAZ21haWwuY29tIiwidXNlcm5hbWUiOiJSb25ueSIsImV4cCI6MTU1MDQzMTkwM30.BFFFIlWsNj6mpKijYeDqi7rS-uK39Z4tLTXcivZyHHI',
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJvbm55bWFnZWhAZ21haWwuY29tIiwidXNlcm5hbWUiOiJSb25ueSIsImV4cCI6MTU1MDQzMTkwM30.BFFFIlWsNj6mpKijYeDqi7rS-uK39Z4tLTXcivZyHHI',
       },
     });
     const expectedActions = [

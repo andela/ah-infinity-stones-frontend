@@ -3,10 +3,7 @@
 
 import { put, takeLatest, call } from 'redux-saga/effects';
 
-import {
-  signupSuccessAction,
-  signupFailureAction,
-} from '../actions/signupActions';
+import { signupSuccessAction, signupFailureAction } from '../actions/signupActions';
 import { SIGNUP_REQUEST } from '../actions/actionTypes';
 import register from '../../services/signupPayload';
 // import { saveToken } from '../../services/auth/token';
@@ -16,7 +13,7 @@ import register from '../../services/signupPayload';
  * @param {*} action
  * @returns {void}
  */
-function* signupSaga(action) {
+export function* signupSaga(action) {
   try {
     const response = yield call(register, action.payload);
     if (response.user) {

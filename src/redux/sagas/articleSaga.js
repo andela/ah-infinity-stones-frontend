@@ -82,7 +82,7 @@ function* getOneArticleSaga(action) {
       yield put(getOneArticleFailureAction(response[0].error));
     }
   } catch (e) {
-    console.log(e);
+    return e;
   }
 }
 /**

@@ -1,10 +1,10 @@
 import React from 'react';
 import { BookMark } from './bookmark';
 
-
 describe('Bookmark Component', () => {
   const preventDefault = jest.fn();
   const props = {
+    slug: 'promaster-test',
     bookmarkRequest: jest.fn(),
   };
 

@@ -21,9 +21,7 @@ class ReportArticle extends Component {
     const { reportMessage } = this.state;
     const {
       props: {
-        article: {
-          art_slug,
-        },
+        article: { art_slug },
         reportArticleAction,
       },
     } = this.props;
@@ -48,24 +46,52 @@ class ReportArticle extends Component {
           <div className='modal-body'>
             <form id='reportMessageForm'>
               <input type='radio' name='reportMessage' value='Spam' onClick={this.onChange} />
-               Spam
+              Spam
               <br />
-              <input type='radio' name='reportMessage' value='Harrassment' onClick={this.onChange} />
-               Harrassment
+              <input
+                type='radio'
+                name='reportMessage'
+                value='Harrassment'
+                onClick={this.onChange}
+              />
+              Harrassment
               <br />
-              <input type='radio' name='reportMessage' value='Rules Violation' onClick={this.onChange} />
-               Rules Violation
+              <input
+                type='radio'
+                name='reportMessage'
+                value='Rules Violation'
+                onClick={this.onChange}
+              />
+              Rules Violation
             </form>
           </div>
           <div className='modal-footer'>
-            <button type='button' className='btn btn-secondary' data-dismiss='modal'>Cancel</button>
-            <button type='button' className='btn btn-danger' id='modalSubmitReport' data-dismiss='modal' disabled={!reportMessage} onClick={this.handleReport}>Report</button>
+            <button type='button' className='btn btn-secondary' data-dismiss='modal'>
+              Cancel
+            </button>
+            <button
+              type='button'
+              className='btn btn-danger'
+              id='modalSubmitReport'
+              data-dismiss='modal'
+              disabled={!reportMessage}
+              onClick={this.handleReport}
+            >
+              Report
+            </button>
           </div>
         </div>
       </div>
     );
     return (
-      <div className='modal fade' id='reportArticleModal' tabIndex='-1' role='dialog' aria-labelledby='reportArticleModalTitle' aria-hidden='true'>
+      <div
+        className='modal fade'
+        id='reportArticleModal'
+        tabIndex='-1'
+        role='dialog'
+        aria-labelledby='reportArticleModalTitle'
+        aria-hidden='true'
+      >
         {modalContent}
       </div>
     );

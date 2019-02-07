@@ -2,8 +2,38 @@
 
 exports[`Single Article Component article component should match snapshot 1`] = `
 Array [
-  <Context.Consumer>
-    [Function]
-  </Context.Consumer>,
+  <Provider
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+  >
+    <BrowserRouter>
+      <Connect(Article)
+        article={
+          Object {
+            "art_slug": "smileys",
+            "body": "<p>there…y are thats awespome</p>",
+            "description": "emoji are working",
+            "rating_average": 4,
+            "read_time": 1,
+            "title": "smileys",
+          }
+        }
+        match={
+          Object {
+            "params": Object {
+              "art_slug": "js-testing",
+            },
+          }
+        }
+      />
+    </BrowserRouter>
+  </Provider>,
 ]
 `;

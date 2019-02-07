@@ -5,7 +5,6 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import EditorToolbar from '../EditorToolbar';
 import { createArticleAction } from '../../../../redux/actions/articleActions';
 
-
 class ArticleCreation extends Component {
   constructor(props) {
     super(props);
@@ -31,19 +30,48 @@ class ArticleCreation extends Component {
   render() {
     return (
       <div>
-        <div className="container">
-          <form id="articleForm" method="post" encType="multipart/form-data" onSubmit= {this.handleSubmit}>
-            <ul className="article-creation-form">
-              <li><label htmlFor="articleTitle">Title</label></li>
-              <li><input type="text" name="articleTitle" id="articleTitle" placeholder="Title" /></li>
-              <li><label htmlFor="articleDescription">Description</label></li>
-              <li><textarea name="articleDescription" id="articleDescription" placeholder="Add a two-line version of your story." /></li>
-              <li><label htmlFor="articleBody">Body</label></li>
-              <div id="toolbar-container" />
-              <li><EditorToolbar /></li>
-              <li><label htmlFor="articleTags">Tags</label></li>
-              <li><input type="text" name="articleTags" id="articleTags" placeholder="Tags" /></li>
-              <li><button type="submit" id="publishBtn">Submit</button></li>
+        <div className='container'>
+          <form
+            id='articleForm'
+            method='post'
+            encType='multipart/form-data'
+            onSubmit={this.handleSubmit}
+          >
+            <ul className='article-creation-form'>
+              <li>
+                <label htmlFor='articleTitle'>Title</label>
+              </li>
+              <li>
+                <input type='text' name='articleTitle' id='articleTitle' placeholder='Title' />
+              </li>
+              <li>
+                <label htmlFor='articleDescription'>Description</label>
+              </li>
+              <li>
+                <textarea
+                  name='articleDescription'
+                  id='articleDescription'
+                  placeholder='Add a two-line version of your story.'
+                />
+              </li>
+              <li>
+                <label htmlFor='articleBody'>Body</label>
+              </li>
+              <div id='toolbar-container' />
+              <li>
+                <EditorToolbar />
+              </li>
+              <li>
+                <label htmlFor='articleTags'>Tags</label>
+              </li>
+              <li>
+                <input type='text' name='articleTags' id='articleTags' placeholder='Tags' />
+              </li>
+              <li>
+                <button type='submit' id='publishBtn'>
+                  Submit
+                </button>
+              </li>
             </ul>
           </form>
         </div>
@@ -51,11 +79,12 @@ class ArticleCreation extends Component {
     );
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    article: state.articleReducer.article,
-  };
-};
+const mapStateToProps = state => ({
+  article: state.articleReducer.article,
+});
 
 const mapDispatchToProps = { createArticleAction };
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleCreation);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ArticleCreation);

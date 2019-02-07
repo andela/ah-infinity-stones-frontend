@@ -148,7 +148,7 @@ const mapStateToProps = state => ({
   errorMsg: state.articleReducer.searchErrorMsg,
 });
 GetAllArticles.propTypes = {
-  errorMsg: PropTypes.func,
+  errorMsg: PropTypes.string.isRequired,
 };
 const actionCreators = {
   getAllArticlesRequestAction,

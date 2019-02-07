@@ -1,5 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Profile /> Button should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Button)>
+        <Button
+          getProfile={[Function]}
+        >
+          <div>
+            <p>
+               
+            </p>
+            <button
+              className="button"
+              type="button"
+            >
+              <span
+                className="theme"
+              >
+                <i
+                  className="mdi mdi-book-open-page-variant mdi-24px"
+                />
+              </span>
+               
+              My Articles
+            </button>
+             
+            <Link
+              replace={false}
+              to="/bookmarks"
+            >
+              <a
+                href="/bookmarks"
+                onClick={[Function]}
+              >
+                <button
+                  className="button"
+                  type="button"
+                >
+                  <span
+                    className="theme"
+                  >
+                    <i
+                      className="mdi mdi-bookmark mdi-24px"
+                    />
+                  </span>
+                   
+                  Bookmarks
+                </button>
+              </a>
+            </Link>
+             
+            <button
+              className="button button-theme"
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className="theme"
+              >
+                <i
+                  className="mdi mdi-reload mdi-24px"
+                />
+              </span>
+               
+              Refresh
+            </button>
+          </div>
+        </Button>
+      </Connect(Button)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
 exports[`<Profile /> test snapshot 1`] = `
 <ContextProvider
   value={

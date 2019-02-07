@@ -1,4 +1,5 @@
-/* eslint-disable no-shadow, react/prop-types, react/destructuring-assignment, no-lonely-if, consistent-return */
+/* eslint-disable no-shadow, react/prop-types,
+react/destructuring-assignment, no-lonely-if, consistent-return */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
@@ -6,7 +7,8 @@ import ReactHtmlParser from 'react-html-parser';
 import StarRatings from 'react-star-ratings';
 import PropTypes from 'prop-types';
 import './Article.scss';
-import { rateArticleAction,
+import {
+  rateArticleAction,
   getOneArticleRequestAction,
   deleteArticleAction,
   reportArticleAction,
@@ -17,7 +19,7 @@ import SocialShare from '../ArticleShare/shareArticle';
 import ReportArticle from './ReportArticle';
 import BookMarkArticle from '../Bookmark/bookmark';
 
-import Comment from '../../views/Comment'
+import Comment from '../../views/Comment';
 
 class Article extends Component {
   constructor(props) {
@@ -76,13 +78,9 @@ class Article extends Component {
     }
   }
 
-  handleLike = () => {
-    const { sendLike, match } = this.props;
-    const isAuth = localStorage.getItem('isLoggedIn');
-    return isAuth !== 'true'
-      ? alert('You need to login')
-      : sendLike({ like: 'True' }, match.params.art_slug);
-  };
+  getSlug() {
+    return this.props.match.params.art_slug;
+  }
 
   handleDislike = () => {
     const { sendLike, match } = this.props;
@@ -92,38 +90,42 @@ class Article extends Component {
       : sendLike({ like: 'False' }, match.params.art_slug);
   };
 
+  handleLike = () => {
+    const { sendLike, match } = this.props;
+    const isAuth = localStorage.getItem('isLoggedIn');
+    return isAuth !== 'true'
+      ? alert('You need to login')
+      : sendLike({ like: 'True' }, match.params.art_slug);
+  };
+
   // rating click handler
- handleRatingClick = (event) => {
-   this.setState({
-     rating: event,
-     buttonStatus: false,
-   });
-   const payload = {
-     art_slug: this.props.match.params.art_slug,
-     rating: event,
-   };
-   const { rateArticleAction, rated } = this.props;
-   const div = document.getElementById('msg');
-   rateArticleAction(payload);
-   if (!rated) {
-     div.innerHTML = 'Thank you for rating this article.';
-   }
-   div.style.transition = 'opacity 6s';
-   div.style.opacity = '0';
- }
+  handleRatingClick = (event) => {
+    this.setState({
+      rating: event,
+      buttonStatus: false,
+    });
+    const payload = {
+      art_slug: this.props.match.params.art_slug,
+      rating: event,
+    };
+    const { rateArticleAction, rated } = this.props;
+    const div = document.getElementById('msg');
+    rateArticleAction(payload);
+    if (!rated) {
+      div.innerHTML = 'Thank you for rating this article.';
+    }
+    div.style.transition = 'opacity 6s';
+    div.style.opacity = '0';
+  };
 
- handleEditArticle() {
-   this.props.history.push(`${this.props.article.art_slug}/edit`);
- }
+  handleEditArticle() {
+    this.props.history.push(`${this.props.article.art_slug}/edit`);
+  }
 
- handleDeleteArticle(event) {
-   event.preventDefault();
-   this.props.deleteArticleAction(this.props.article.art_slug);
-   this.props.history.push('/');
- }
-
-  getSlug(){
-    return this.props.match.params.art_slug
+  handleDeleteArticle(event) {
+    event.preventDefault();
+    this.props.deleteArticleAction(this.props.article.art_slug);
+    this.props.history.push('/');
   }
 
   render() {
@@ -132,103 +134,93 @@ class Article extends Component {
     } = this.props;
     const isAuth = localStorage.getItem('isLoggedIn');
     let rate = 0;
-    if(this.props.article.rating_average !== null){
-      rate = parseInt(this.props.article.rating_average);
+    if (this.props.article.rating_average !== null) {
+      rate = parseInt(this.props.article.rating_average, 10);
     }
     const singleArticle = Object.keys(article).length ? (
-      <div className="article">
-        <div className="row article">
-          <div className="col-2">
-            <div className="article-data">
-              <div className="row">
-                <span className="article-rating">
+      <div className='article'>
+        <div className='row article'>
+          <div className='col-2'>
+            <div className='article-data'>
+              <div className='row'>
+                <span className='article-rating'>
                   Average Rating
-                 <div>
-                   <StarRatings
-                     rating={rate}
-                     starRatedColor='#86C232'
-                     starDimension='20px'
-                     numberOfStars={5}
-                     disabled
-                     name='rating'
-                   />
-                 </div>
-               </span>
-             </div>
-           </div>
-         </div>
-         <div className='col-8'>
-           <h4 className='article-title'>{article.title}</h4>
-           <div className='article-stats'>
-             <span className='article-author'>{article.author.username}</span>
-             <span className='article-read_time'>
-               <i className='mdi mdi-calendar-clock mdi-24px' />
-              &nbsp;
-               {
-                  article.read_time
-                }
-              &nbsp;
-                Minute Read
-             </span>
-           </div>
-           <div className='article-body'>{ReactHtmlParser(this.props.article.body)}</div>
-           <div className='article-tags'>
-             {
-                this.props.article.tag.map(tag => (
-                  <Link
-                    className='art-fun'
-                    to={`/tags/${tag}`}
-                  >
-                    {this.props.article.tag}
-                  </Link>
-                ))
-              }
-           </div>
-           <div className='pull-right'>
-             <span className='caption code'>
-               {dislikeCount === null ? article.dislikes_count : dislikeCount}
+                  <div>
+                    <StarRatings
+                      rating={rate}
+                      starRatedColor='#86C232'
+                      starDimension='20px'
+                      numberOfStars={5}
+                      disabled
+                      name='rating'
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className='col-8'>
+            <h4 className='article-title'>{article.title}</h4>
+            <div className='article-stats'>
+              <span className='article-author'>{article.author.username}</span>
+              <span className='article-read_time'>
+                <i className='mdi mdi-calendar-clock mdi-24px' />
                 &nbsp;
-             </span>
-             <button
-               type='button'
-               id='dislike'
-               className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
-                 disliked === null
-                   ? article.disliking && isAuth === 'true'
-                   : disliked && isAuth === 'true'
-               } `}
-               onClick={this.handleDislike}
-             >
+                {article.read_time}
+                &nbsp; Minute Read
+              </span>
+            </div>
+            <div className='article-body'>{ReactHtmlParser(this.props.article.body)}</div>
+            <div className='article-tags'>
+              {this.props.article.tag.map(tag => (
+                <Link className='art-fun' to={`/tags/${tag}`}>
+                  {this.props.article.tag}
+                </Link>
+              ))}
+            </div>
+            <div className='pull-right'>
+              <span className='caption code'>
+                {dislikeCount === null ? article.dislikes_count : dislikeCount}
                 &nbsp;
-               <i className='fa fa-thumbs-down mdi-24px' />
+              </span>
+              <button
+                type='button'
+                id='dislike'
+                className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
+                  disliked === null
+                    ? article.disliking && isAuth === 'true'
+                    : disliked && isAuth === 'true'
+                } `}
+                onClick={this.handleDislike}
+              >
                 &nbsp;
-             </button>
-           </div>
-           <div className='pull-right'>
-             <span className='caption code'>
-               {likeCount === null ? article.likes_count : likeCount}
+                <i className='fa fa-thumbs-down mdi-24px' />
                 &nbsp;
-             </span>
-             <button
-               type='button'
-               id='like'
-               className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
-                 liked === null
-                   ? article.liking && isAuth === 'true'
-                   : liked && isAuth === 'true'
-               } `}
-               onClick={this.handleLike}
-             >
-               {' '}
+              </button>
+            </div>
+            <div className='pull-right'>
+              <span className='caption code'>
+                {likeCount === null ? article.likes_count : likeCount}
                 &nbsp;
-               <i className='fa fa-thumbs-up mdi-24px' />
+              </span>
+              <button
+                type='button'
+                id='like'
+                className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
+                  liked === null ? article.liking && isAuth === 'true' : liked && isAuth === 'true'
+                } `}
+                onClick={this.handleLike}
+              >
+                {' '}
                 &nbsp;
-             </button>
-           </div>
-           {' '}
-           <ReportArticle props={this.props} />
-           <div className='row reader-only' ref={this.reader_only}>
-             <div className='col article-report'>
+                <i className='fa fa-thumbs-up mdi-24px' />
+                &nbsp;
+              </button>
+            </div>
+            {' '}
+            <ReportArticle props={this.props} />
+            <div className='row reader-only' ref={this.reader_only}>
+              <div className='col article-report'>
                 <button
                   type='button'
                   id='reportArticleButton'
@@ -239,81 +231,78 @@ class Article extends Component {
                   REPORT
                 </button>
               </div>
-            <BookMarkArticle
-              slug={this.props.article.art_slug}
-            />
-             <div className='col' id='myRating'>
-               <b>Rate This Article</b>
-               <br />
-               <StarRatings
-                 rating={this.state.rating}
-                 starRatedColor='#86C232'
-                 starDimension='20px'
-                 starHoverColor='#86C232'
-                 changeRating={this.handleRatingClick}
-                 numberOfStars={5}
-                 disabled={this.state.buttonStatus}
-                 name='rating'
-               />
-               <br />
-               <span id='msg' />
-             </div>
-           </div>
-           <div className='col article-social_media_urls'>
-             <br />
-             <SocialShare
-               title={this.props.article.title}
-               slug={this.props.article.art_slug}
-             />
-             <br />
-           </div>
-           <div id="article-comments">
-              <h3>Comments</h3>
-              {localStorage.getItem('Token')===null ? <Comment slug={this.getSlug()}/> : <Comment slug={this.getSlug()}/>}
+              <BookMarkArticle slug={this.props.article.art_slug} />
+              <div className='col' id='myRating'>
+                <b>Rate This Article</b>
+                <br />
+                <StarRatings
+                  rating={this.state.rating}
+                  starRatedColor='#86C232'
+                  starDimension='20px'
+                  starHoverColor='#86C232'
+                  changeRating={this.handleRatingClick}
+                  numberOfStars={5}
+                  disabled={this.state.buttonStatus}
+                  name='rating'
+                />
+                <br />
+                <span id='msg' />
+              </div>
             </div>
-           <div />
-         </div>
-         <div className='col-2'>
-           <div className='author-only' ref={this.author_only}>
-             <button
-               type='button'
-               id='editArticleButton'
-               className='btn btn-primary'
-               onClick={this.handleEditArticle}
-             >
-               <i className='mdi mdi-pencil' />
+            <div className='col article-social_media_urls'>
+              <br />
+              <SocialShare title={this.props.article.title} slug={this.props.article.art_slug} />
+              <br />
+            </div>
+            <div id='article-comments'>
+              <h3>Comments</h3>
+              {localStorage.getItem('Token') === null ? (
+                <Comment slug={this.getSlug()} />
+              ) : (
+                <Comment slug={this.getSlug()} />
+              )}
+            </div>
+            <div />
+          </div>
+          <div className='col-2'>
+            <div className='author-only' ref={this.author_only}>
+              <button
+                type='button'
+                id='editArticleButton'
+                className='btn btn-primary'
+                onClick={this.handleEditArticle}
+              >
+                <i className='mdi mdi-pencil' />
                 EDIT
-             </button>
-             <button
-               type='button'
-               id='deleteArticleButton'
-               className='btn btn-danger'
-               onClick={this.handleDeleteArticle}
-             >
-               <i className='mdi mdi-delete' />
+              </button>
+              <button
+                type='button'
+                id='deleteArticleButton'
+                className='btn btn-danger'
+                onClick={this.handleDeleteArticle}
+              >
+                <i className='mdi mdi-delete' />
                 DELETE
-             </button>
-           </div>
-         </div>
-       </div>
-       <div className='row' id='featured-articles'>
-         <div className='col' />
-         <div className='col' />
-         <div className='col' />
-       </div>
-       <div className='row' id='article-comment'>
-         <div className='col-2' />
-         <div className='col-8' />
-         <div className='col-2' />
-       </div>
-     </div>
-   ) : (
-     <div className='article'>
-        Unfortunately, we cannot fetch this article. Try again later...
-     </div>
-   );
-   return <div className='container'>{singleArticle}</div>;
- }
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className='row' id='featured-articles'>
+          <div className='col' />
+          <div className='col' />
+          <div className='col' />
+        </div>
+        <div className='row' id='article-comment'>
+          <div className='col-2' />
+          <div className='col-8' />
+          <div className='col-2' />
+        </div>
+      </div>
+    ) : (
+      <div className='article'>Unfortunately, we cannot fetch this article. Try again later...</div>
+    );
+    return <div className='container'>{singleArticle}</div>;
+  }
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -332,9 +321,7 @@ const mapStateToProps = (state, ownProps) => {
     };
   }
   return {
-    article: state.articleReducer.articles[0].find(
-      article => article.art_slug === artSlug,
-    ),
+    article: state.articleReducer.articles[0].find(article => article.art_slug === artSlug),
     likeCount: state.likeReducer.likeCount,
     dislikeCount: state.likeReducer.dislikeCount,
     liked: state.likeReducer.liked,
