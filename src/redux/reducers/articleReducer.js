@@ -51,6 +51,7 @@ export default (state = initialState, action) => {
         error: action.payload,
       };
     case GET_ONE_ARTICLE_SUCCESS:
+      console.log('gotten one article');
       return {
         ...state,
         article: action.payload,

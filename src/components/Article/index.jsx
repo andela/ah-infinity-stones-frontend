@@ -26,6 +26,7 @@ class Article extends Component {
     this.handleDeleteArticle = this.handleDeleteArticle.bind(this);
     this.author_only = React.createRef();
     this.reader_only = React.createRef();
+    console.log(this.props)
     this.state = {
       rating: 0,
       buttonStatus: true,
@@ -72,6 +73,11 @@ class Article extends Component {
           this.author_only.current.style.visibility = 'hidden';
           this.author_only.current.style.display = 'none';
         }
+      } else {
+        this.reader_only.current.style.visibility = 'hidden';
+        this.reader_only.current.style.display = 'none';
+        this.author_only.current.style.visibility = 'hidden';
+        this.author_only.current.style.display = 'none';
       }
     }
   }
@@ -130,6 +136,8 @@ class Article extends Component {
     const {
       article, likeCount, dislikeCount, liked, disliked,
     } = this.props;
+    console.log('in render')
+    console.log(this.props)
     const isAuth = localStorage.getItem('isLoggedIn');
     let rate = 0;
     if(this.props.article.rating_average !== null){
@@ -233,7 +241,8 @@ class Article extends Component {
                   type='button'
                   id='reportArticleButton'
                   className='btn btn-danger'
-                  onClick={this.handleEditArticle}
+                  data-toggle="modal"
+                  data-target="#reportArticleModal"
                 >
                   <i className='mdi mdi-alert' />
                   REPORT
